@@ -23,4 +23,13 @@ Take a look at what I've built:
 
 ---
 
+## 📊 GitHub Stats
+
+![Zubariel's GitHub stats](https://github-readme-stats.vercel.app/api?username=Zubariel&show_icons=true&theme=tokyonight)  
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Zubariel&layout=compact&theme=tokyonight)  
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Zubariel&theme=tokyonight)  
+![GitHub Contribution Graph](https://github-readme-activity-graph.cyclic.app/graph?username=Zubariel&theme=tokyo-night)
+
+---
+
 Thanks for visiting!
