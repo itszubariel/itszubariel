@@ -28,7 +28,6 @@ Take a look at what I've built:
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=itszubariel&show_icons=true&theme=tokyonight)  
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=itszubariel&layout=compact&theme=tokyonight)  
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=itszubariel&theme=tokyonight)  
-![Contribution Graph](https://github-readme-activity-graph.cyclic.app/graph?username=itszubariel&theme=tokyo-night)
 
 ---
 
