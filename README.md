@@ -1,37 +1,55 @@
-# Zubariel
-
-I'm a student and developer working across multiple areas of software, including web, systems, automation, and tooling.
-
----
-
-## Skills
-
-Frontend: HTML, CSS, JavaScript, TypeScript  
-Backend: Node.js, Python, C#, Java  
-Systems: Linux, basic networking, scripting  
-Databases: MongoDB, SQLite, basic SQL  
-Tools: Git, VS Code, GitHub, Discord.js, REST APIs  
+<div align="center">
+  <h1>Hi, I'm Zubariel</h1>
+  <p>
+    An 18-year-old student and developer passionate about building innovative solutions,
+    from Discord bots to full-stack web applications.
+  </p>
+  <p>
+    Currently mastering the <strong>MERN stack</strong> to bring ideas to life.
+  </p>
+</div>
 
 ---
 
-## Stats
-![GitHub Streak](https://streak-stats.demolab.com?user=itszubariel&theme=tokyonight&hide_border=true)
+### About Me
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=itszubariel&show_icons=true&theme=tokyonight&hide_border=true)
+I'm a self-driven student/developer with a strong interest in software development.  
+I enjoy turning ideas into functional applications and continuously improving my skills through hands-on projects.
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=itszubariel&layout=compact&theme=tokyonight&hide_border=true)
-
-![Trophy](https://github-profile-trophy.vercel.app/?username=itszubariel&theme=tokyonight&no-frame=true&row=1)
-
----
-
-## Contact
-
-- Discord: [Zubariel](https://discord.com/users/860384146778226699)  
-- Website: [Linktree/Contact](https://zubariel.is-a.dev/contact)
+My journey so far has included developing Discord bots, backend services, minecraft mods, extensions and exploring full-stack web development.  
+I’m particularly focused on creating whatever comes to my mind.
 
 ---
 
-## Thanks
+### Skills & Technologies
 
-Thanks you for going through my profile ;/
+**Frontend**  
+HTML, CSS, JavaScript, TypeScript
+
+**Backend**  
+Node.js, Python, C#, Java
+
+**Databases**  
+MongoDB, SQLite, basic SQL
+
+**Tools & Platforms**  
+Git, GitHub, VS Code, Linux, REST APIs, Discord.js
+
+**Currently Learning**  
+MERN Stack (MongoDB • Express • React • Node.js)
+
+---
+
+### Get In Touch
+
+- **Discord**: [Zubariel](https://discord.com/users/860384146778226699)
+- **Website / Contact**: [zubariel.is-a.dev/contact](https://zubariel.is-a.dev/contact)
+
+I'm always open to interesting conversations, feedback, or collaboration opportunities.
+
+---
+
+### Thank You
+
+Thank you for visiting my GitHub profile.  
+Feel free to explore my repositories and reach out if anything catches your interest.
