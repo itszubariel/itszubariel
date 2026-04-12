@@ -15,9 +15,8 @@
 
 I'm a self-driven student/developer with a strong interest in software development.  
 I enjoy turning ideas into functional applications and continuously improving my skills through hands-on projects.
-
 My journey so far has included developing Discord bots, backend services, minecraft mods, extensions and exploring full-stack web development.  
-I’m particularly focused on creating whatever comes to my mind.
+I'm particularly focused on creating whatever comes to my mind.
 
 ---
 
@@ -53,3 +52,22 @@ I'm always open to interesting conversations, feedback, or collaboration opportu
 
 Thank you for visiting my GitHub profile.  
 Feel free to explore my repositories and reach out if anything catches your interest.
+
+---
+
+<div align="center">
+
+  [![](https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/0-profile-details.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+
+  <table>
+    <tr>
+      <td><a href="https://github.com/vn7n24fzkq/github-profile-summary-cards"><img src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/1-repos-per-language.svg"/></a></td>
+      <td><a href="https://github.com/vn7n24fzkq/github-profile-summary-cards"><img src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/2-most-commit-language.svg"/></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/vn7n24fzkq/github-profile-summary-cards"><img src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/3-stats.svg"/></a></td>
+      <td><a href="https://github.com/vn7n24fzkq/github-profile-summary-cards"><img src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/4-productive-time.svg"/></a></td>
+    </tr>
+  </table>
+
+</div>
