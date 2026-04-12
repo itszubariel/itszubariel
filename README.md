@@ -22,19 +22,25 @@ I'm particularly focused on creating whatever comes to my mind.
 
 ### Skills & Technologies
 
-**Frontend**  
-HTML, CSS, JavaScript, TypeScript
+**Frontend**<br>
+HTML, CSS, Tailwind CSS, JavaScript, TypeScript, React, p5.js, Anime.js
 
-**Backend**  
-Node.js, Python, C#, Java
+**Backend**<br>
+Node.js, Express.js, Python, Flask, Java, Kotlin, C, C++, C#
 
-**Databases**  
-MongoDB, SQLite, basic SQL
+**Databases**<br>
+MongoDB, Supabase, SQLite, MySQL, SQL
 
-**Tools & Platforms**  
-Git, GitHub, VS Code, Linux, REST APIs, Discord.js
+**APIs & Libraries**<br>
+Discord.js, Jikan API, REST APIs
 
-**Currently Learning**  
+**Tools & Platforms**<br>
+Git, GitHub, VS Code, Netlify Functions, Vercel, Cloudflare, Modrinth
+
+**Minecraft Modding**<br>
+Fabric API, Java, Kotlin, XML
+
+**Currently Learning**<br>
 MERN Stack (MongoDB • Express • React • Node.js)
 
 ---
