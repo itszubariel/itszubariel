@@ -32,7 +32,7 @@ Node.js, Express.js, Python, Flask, Java, Kotlin, C, C++, C#
 MongoDB, Supabase, SQLite, MySQL, SQL
 
 **APIs & Libraries**<br>
-Discord.js, Jikan API, REST APIs
+Discord.js, BDScript, REST APIs
 
 **Tools & Platforms**<br>
 Git, GitHub, VS Code, Netlify Functions, Vercel, Cloudflare, Modrinth
