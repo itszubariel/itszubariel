@@ -28,6 +28,9 @@ I got into coding by making stuff I actually wanted to use, and that's still how
 **[scrobbler](https://scrobbler.netlify.app)** | Verified Discord Bot  
 A Last.fm-powered Discord bot for tracking music, comparing taste with friends, and seeing who knows an artist best in your server.
 
+**[scrobbler dashboard](https://scrobbler-dashboard.netlify.app)** | Web Application  
+A web dashboard for scrobbler. view your last.fm stats, charts, and listening insights.
+
 **[BDTools](https://bdtools.xyz)** | Web Application  
 A free, open-source suite of browser-based tools for the BDFD community. No installs, no accounts, just tools.
 
@@ -39,9 +42,6 @@ A single-player Lifesteal-style progression mod. Dying costs you a heart permane
 
 **[Statify](https://marketplace.visualstudio.com/items?itemName=zubariel.statify)** | VS Code Extension  
 A real-time analytics dashboard for your codebase. Lines of code, language breakdowns, Git activity, health scores, and 25 themes. No config needed.
-
-**[Auora Bot](https://discord.com/application-directory/860384146778226699)** | Verified Discord Bot (Discontinued)  
-A multi-purpose Discord bot I built and maintained. Reached 150K+ users across 500+ servers before being sunset.
 
 ---
 
