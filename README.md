@@ -12,9 +12,10 @@
 
 Self-taught developer with around **5 years** of self-driven experience building Discord bots, web tools, Minecraft mods, VS Code extensions, and apps.
 
-I got into coding by making stuff I actually wanted to use, and that's still how it works. TypeScript is my main language. I don't follow a stack, I just build things.
+I got into coding by making stuff I actually wanted to use, and that's still how it works. TypeScript is my main language, but I also work in Rust when the project calls for it. I don't follow a stack, I just build things, including, apparently, my own programming language.
 
 **What I Do:**
+- DSL and language design
 - Discord bots with real utility
 - Web tools and applications
 - Minecraft mods (Fabric API)
@@ -26,7 +27,7 @@ I got into coding by making stuff I actually wanted to use, and that's still how
 ### Featured Public Projects
 
 **[ZBR](https://github.com/zbrlang/zbr)** | DSL / Language Project  
-The scripting language for Discord bots. 
+A scripting language for Discord bots. Write commands as plain `.zbr` files — no boilerplate, no event handlers, no framework knowledge required. Built in Rust under the [ZBRLang](https://github.com/zbrlang) org.
 
 **[scrobbler](https://scrobbler.netlify.app)** | Verified Discord Bot  
 A Last.fm-powered Discord bot for tracking music, comparing taste with friends, and seeing who knows an artist best in your server.
@@ -47,7 +48,7 @@ A real-time analytics dashboard for your codebase. Lines of code, language break
 
 ### Tech Stack
 
-**Languages:** TypeScript · JavaScript · Python  
+**Languages:** TypeScript · JavaScript · Python · Rust  
 **Frontend:** React · Next.js · HTML5 · CSS3  
 **Backend:** Node.js · Express.js · Discord.js  
 **Databases:** Supabase · Prisma · PostgreSQL · MongoDB  
@@ -65,7 +66,6 @@ A real-time analytics dashboard for your codebase. Lines of code, language break
 <div align="center">
 
 [![](https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/0-profile-details.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
-
   <table>
     <tr>
       <td><a href="https://github.com/vn7n24fzkq/github-profile-summary-cards"><img src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/1-repos-per-language.svg"/></a></td>
@@ -76,5 +76,4 @@ A real-time analytics dashboard for your codebase. Lines of code, language break
       <td><a href="https://github.com/vn7n24fzkq/github-profile-summary-cards"><img src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/profile-summary-card-output/gruvbox/4-productive-time.svg"/></a></td>
     </tr>
   </table>
-
 </div>
