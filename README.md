@@ -25,6 +25,9 @@ I got into coding by making stuff I actually wanted to use, and that's still how
 
 ### Featured Public Projects
 
+**[ZBR](https://github.com/zbrlang/zbr)** | DSL / Language Project  
+The scripting language for Discord bots. 
+
 **[scrobbler](https://scrobbler.netlify.app)** | Verified Discord Bot  
 A Last.fm-powered Discord bot for tracking music, comparing taste with friends, and seeing who knows an artist best in your server.
 
