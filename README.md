@@ -31,9 +31,6 @@ The scripting language for Discord bots.
 **[scrobbler](https://scrobbler.netlify.app)** | Verified Discord Bot  
 A Last.fm-powered Discord bot for tracking music, comparing taste with friends, and seeing who knows an artist best in your server.
 
-**[scrobbler dashboard](https://scrobbler-dashboard.netlify.app)** | Web Application  
-A web dashboard for scrobbler. view your last.fm stats, charts, and listening insights.
-
 **[BDTools](https://bdtools.xyz)** | Web Application  
 A free, open-source suite of browser-based tools for the BDFD community. No installs, no accounts, just tools.
 
