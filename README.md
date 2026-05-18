@@ -20,7 +20,7 @@ TypeScript is my main language. I don't follow a stack, I just build things.
 
 ### Stack
 
-TypeScript · JavaScript · Rust · Node.js · React · Next.js · Express · Discord.js · Supabase · Fabric API
+TypeScript · JavaScript · Rust · Java · Python · React · Node.js · Next.js · Express.js · Discord.js · Vite
 
 ---
 
