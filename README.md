@@ -1,26 +1,18 @@
 <div align="center">
   <h1>Hi, I'm Zubariel</h1>
+  </div>
   <p>
-    self-taught dev. builds bots, tools, mods, apps, and apparently my own programming language now.<br/>
-    TypeScript is home. Rust when it gets serious. shipping things is the whole point.
-  </p>
-</div>
-
----
-
-### About Me
-
-around 5 years of building stuff I actually wanted to use. that's still the whole reason.
-
-started with Discord bots, went through web tools, Minecraft mods, VS Code extensions, PWAs and somewhere along the way ended up writing a scripting language in Rust. no plan, just whatever seemed interesting.
-
-TypeScript is my main language. I don't follow a stack, I just build things.
+    a self-taught developer who just builds things, whatever catches my interest.
+    I've been building software for about 5 years ranging from Discord bots, scripting languages to web tools, mods, and apps. I don't follow a set stack, I just build what I need, and I'm always learning along the way. 
+    </p>
 
 ---
 
 ### Stack
 
-TypeScript · JavaScript · Rust · Java · Python · React · Node.js · Next.js · Express.js · Discord.js · Vite
+**Languages**: TypeScript · Rust · Python · Java · SQL · HTML · CSS<br>
+**Frameworks**: React · Next.js · Node · Express · PyTorch · Vosk · Fabric · Discord.js · Serenity · Vite<br>
+**Tools**: Git · AWS · SQLite · Prisma · PostgreSQL · REST APIs<br> & more...
 
 ---
 
@@ -44,3 +36,5 @@ TypeScript · JavaScript · Rust · Java · Python · React · Node.js · Next.j
 
 - **Website**: [zubariel.is-a.dev](https://zubariel.is-a.dev)
 - **Discord**: [@_zubr.l](https://discord.com/users/860384146778226699)
+
+---
