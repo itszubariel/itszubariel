@@ -10,9 +10,9 @@
 
 ### Stack
 
-**Languages**: TypeScript · Rust · Python · Java · SQL · HTML · CSS<br>
-**Frameworks**: React · Next.js · Node · Express · PyTorch · Vosk · Fabric · Discord.js · Serenity · Vite<br>
-**Tools**: Git · AWS · SQLite · Prisma · PostgreSQL · REST APIs<br> & more...
+**Languages**: TypeScript · Rust · Python · Java · C · C++ · SQL · HTML · CSS  
+**Frameworks**: React · Next.js · Node.js · Express · Discord.js · Serenity · Fabric · Vite · PyTorch · Vosk  
+**Tools**: Git · AWS · Prisma · PostgreSQL · SQLite · REST APIs · tree-sitter
 
 ---
 
