@@ -74,7 +74,7 @@
 
 **[Track Birthdays](https://github.com/itszubariel/track-birthdays)**: birthday tracker PWA and Android app. push notifications, AI gift suggestions, no ads, no tracking.
 
-**[Heart of Life](https://github.com/itszubariel/heart-of-life)**: Minecraft Fabric mod. Lifesteal-style heart progression. dying costs you a heart permanently. 1.5K+ downloads.
+**[Heart of Life](https://github.com/itszubariel/heart-of-life)**: Minecraft Fabric mod. Lifesteal-style heart progression. dying costs you a heart permanently. 2.5K+ downloads.
 
 **[Statify](https://github.com/itszubariel/Statify)**: VS Code extension. real-time codebase stats, Git heatmaps, 25 themes. no config needed.
 
