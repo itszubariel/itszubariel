@@ -82,7 +82,7 @@
 
 ### Find me
 
-- **Website**: [zubariel.is-a.dev](https://zubariel.is-a.dev)
+- **Website**: [zubariel](https://zubs.me/)
 - **Discord**: [@_zubr.l](https://discord.com/users/860384146778226699)
 
 ---
