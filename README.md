@@ -83,6 +83,6 @@
 ### Find me
 
 - **Website**: [zubariel](https://zubs.me/)
-- **Discord**: [@_zubr.l](https://discord.com/users/860384146778226699)
+- **Discord**: [@_zubr.l](https://discord.zubs.me/)
 
 ---
