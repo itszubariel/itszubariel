@@ -24,6 +24,7 @@ import base64
 import json
 import subprocess
 import sys
+import time
 import urllib.parse
 import urllib.request
 from collections import Counter, defaultdict
@@ -32,10 +33,12 @@ from pathlib import Path
 
 OWNER = "itszubariel"
 
-STAR_WINDOW_DAYS = 14           # matches plugin_stargazers_days: 14
+COMMIT_ACTIVITY_WEEKS = 52       # a full year, matching GitHub's own commit graph
+COMMIT_ACTIVITY_REPO_LIMIT = 40  # bounds the one-call-per-repo cost on large accounts
 LINES_REPO_LIMIT = 4            # matches plugin_lines_repositories_limit: 4
 LINES_COMMIT_CAP = 150          # per repo, to bound API calls (one call per commit)
 LINES_HISTORY_DAYS = 365        # matches plugin_lines_history_limit: 1 (year)
+TOP_REPOS_LIMIT = 5
 
 
 def gh(args):
@@ -122,53 +125,52 @@ def notable_orgs(limit=6):
     return orgs
 
 
-def stargazer_series(repos, days=STAR_WINDOW_DAYS):
+def commit_activity_series(repos, weeks=COMMIT_ACTIVITY_WEEKS, repo_limit=COMMIT_ACTIVITY_REPO_LIMIT):
     """
-    New stargazers per day for the last `days` days, aggregated across public
-    repos, plus the running total at each day.
+    Total commits per week across the account's repos, for the last `weeks`
+    weeks — GitHub's own commit-activity graph, aggregated across every repo
+    instead of shown one at a time.
 
-    Only the most recent 100 stargazers per repo are paged (ordered newest
-    first). That window would need to be missed by a repo picking up over a
-    hundred stars inside the fortnight for this to undercount — well outside
-    this account's observed star velocity — so deeper paging isn't spent here.
+    Uses GET /repos/{owner}/{repo}/stats/commit_activity, which GitHub
+    precomputes and caches server-side, so this is one cheap call per repo
+    rather than walking commit history. The one quirk: on a repo whose stats
+    haven't been computed yet, that endpoint returns 202 with an empty body
+    while GitHub builds them in the background. That's retried a couple of
+    times with a short wait; a repo still empty after that is just skipped
+    for this run rather than blocking everything else.
 
-    Returns None on total failure so the caller can fall back to omitting the
-    chart, consistent with the rest of this script's dash-not-zero rule.
+    repo_limit bounds the call count on accounts with very many repos — only
+    the largest (by disk usage, as a proxy for "most likely to be active")
+    are read, matching the same bound already used for lines_changed.
     """
-    cutoff = date.today() - timedelta(days=days - 1)
-    counts = defaultdict(int)
-    total_stars = 0
+    candidates = sorted(
+        (r for r in repos if not r["isPrivate"]),
+        key=lambda r: r.get("diskUsage") or 0, reverse=True
+    )[:repo_limit]
+
+    totals = defaultdict(int)
     any_ok = False
-    for r in repos:
-        if r["isPrivate"]:
-            continue
-        total_stars += r["stargazerCount"]
-        if r["stargazerCount"] == 0:
-            continue
-        q = (f'{{repository(owner:"{OWNER}",name:"{r["name"]}"){{'
-             f'stargazers(first:100, orderBy:{{field:STARRED_AT,direction:DESC}})'
-             f'{{edges{{starredAt}}}}}}}}')
-        d = gh(["api", "graphql", "-f", f"query={q}"])
-        try:
-            edges = d["data"]["repository"]["stargazers"]["edges"]
-        except (TypeError, KeyError):
+    for r in candidates:
+        data = None
+        for attempt in range(3):
+            data = gh(["api", f"repos/{OWNER}/{r['name']}/stats/commit_activity"])
+            if isinstance(data, list) and data:
+                break
+            time.sleep(2)
+        if not isinstance(data, list) or not data:
             continue
         any_ok = True
-        for e in edges:
-            starred = datetime.fromisoformat(e["starredAt"].replace("Z", "+00:00")).date()
-            if starred >= cutoff:
-                counts[starred] += 1
+        for entry in data:
+            totals[entry["week"]] += entry["total"]
+
     if not any_ok:
         return None
-    days_list = [cutoff + timedelta(days=i) for i in range(days)]
-    in_window = sum(counts[d] for d in days_list)
-    running = total_stars - in_window
-    totals = {}
-    for d in days_list:
-        running += counts[d]
-        totals[d] = running
-    return {"days": days_list, "new": [counts[d] for d in days_list],
-            "total": [totals[d] for d in days_list]}
+
+    all_weeks = sorted(totals.keys())[-weeks:]
+    return {
+        "weeks": [datetime.fromtimestamp(w).date() for w in all_weeks],
+        "commits": [totals[w] for w in all_weeks],
+    }
 
 
 def lines_changed(repos, repo_limit=LINES_REPO_LIMIT, commit_cap=LINES_COMMIT_CAP,
@@ -232,6 +234,16 @@ def collect():
     pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
+    # Highest-starred public repos, excluding the profile repo itself (its
+    # name matches OWNER and its stars aren't a reflection of any project).
+    top_repos = sorted(
+        (r for r in public if r["name"] != OWNER),
+        key=lambda r: r["stargazerCount"], reverse=True
+    )[:TOP_REPOS_LIMIT]
+    top_repos = [{"name": r["name"], "stars": r["stargazerCount"],
+                  "language": (r.get("primaryLanguage") or {}).get("name")}
+                 for r in top_repos]
+
     joined = u.get("createdAt")
     years = None
     if joined:
@@ -247,6 +259,7 @@ def collect():
             avatar_b64 = None
 
     added, removed = lines_changed(repos)
+    commit_activity = commit_activity_series(repos)
 
     return {
         "name": u.get("name") or OWNER,
@@ -274,7 +287,8 @@ def collect():
         "disk": round(sum(r.get("diskUsage") or 0 for r in repos) / 1024) if repos else None,
         "languages": langs.most_common(5),
         "notable": notable_orgs(),
-        "stargazer_series": stargazer_series(repos),
+        "top_repos": top_repos,
+        "commit_activity": commit_activity,
         "lines_added": added,
         "lines_removed": removed,
     }
@@ -419,7 +433,7 @@ def build(d, theme="dark"):
     parts.append("\n".join(leg_parts))
     y = ly + 36
 
-    # ---- Community stats ----------------------------------------------------
+    # ---- Community stats + Top repositories, side by side -------------------
     parts.append(f'<text x="0" y="{y}" class="h">Community stats</text>')
     community_rows = [
         ("Member of", f'{n(d["orgs"])} organizations'),
@@ -429,6 +443,19 @@ def build(d, theme="dark"):
         ("Watching", f'{n(d["watching"])} repositories'),
     ]
     parts.append(column(community_rows, 0, y, ""))
+
+    if d["top_repos"]:
+        parts.append(f'<text x="280" y="{y}" class="h">Top repositories</text>')
+        ry = y + 32
+        for r in d["top_repos"]:
+            colour = LANG_COLOURS.get(r["language"], FALLBACK_COLOUR)
+            parts.append(f'<circle cx="284" cy="{ry-4}" r="4" fill="{colour}"/>')
+            parts.append(f'<text x="294" y="{ry}" class="k">{esc(r["name"])}</text>')
+            parts.append(f'<text x="{280+220}" y="{ry}" class="v" text-anchor="end">'
+                         f'\u2605 {n(r["stars"])}</text>')
+            ry += 27
+    # No public repos to rank: the column is omitted rather than shown empty.
+
     y += 32 + 27 * 5 + 24
 
     # ---- Notable contributions (org badges) ---------------------------------
@@ -447,42 +474,53 @@ def build(d, theme="dark"):
     # No orgs found (or the query failed): the section is omitted rather than
     # shown empty, since an empty heading reads as a bug, not as a fact.
 
-    # ---- Stargazers charts ---------------------------------------------------
-    series = d["stargazer_series"]
-    if series:
-        parts.append(f'<text x="0" y="{y}" class="h">Stargazers</text>')
+    # ---- Weekly commit activity, last 12 months ------------------------------
+    activity = d["commit_activity"]
+    if activity:
+        parts.append(f'<text x="0" y="{y}" class="h">Weekly commit activity</text>')
         chart_y = y + 20
         chart_h = 70
-        n_days = len(series["days"])
-        col_w = (W / 2 - 20) / n_days
+        weeks_list = activity["weeks"]
+        commits = activity["commits"]
+        n_weeks = len(weeks_list)
+        col_w = W / n_weeks
+        vmax = max(commits) or 1
 
-        def mini_chart(x0, values, label, colour):
-            out = [f'<text x="{x0 + (col_w*n_days)/2:.1f}" y="{chart_y}" class="lg" '
-                  f'text-anchor="middle">{esc(label)}</text>']
-            vmax = max(values) or 1
-            for i, v in enumerate(values):
-                bar_h = 0 if v == 0 else max(4, chart_h * v / vmax)
-                bx = x0 + i * col_w
-                by = chart_y + 14 + (chart_h - bar_h)
-                out.append(f'<rect x="{bx + col_w*0.2:.1f}" y="{by:.1f}" '
-                           f'width="{col_w*0.6:.1f}" height="{bar_h:.1f}" fill="{colour}"/>')
-                # Only the first and last bars get a printed value — labeling
-                # every bar tied for the window's max produces a cluster of
-                # repeated numbers stacked on top of each other instead of a
-                # readable chart.
-                if i == 0 or i == n_days - 1:
-                    out.append(f'<text x="{bx + col_w/2:.1f}" y="{by-4:.1f}" class="lg" '
-                               f'text-anchor="middle">{v}</text>')
-                dstr = series["days"][i].strftime("%-d")
-                out.append(f'<text x="{bx + col_w/2:.1f}" y="{chart_y+14+chart_h+16}" class="lg" '
-                           f'text-anchor="middle">{dstr}</text>')
-            return "\n".join(out)
+        bars = []
+        for i, v in enumerate(commits):
+            bar_h = 0 if v == 0 else max(2, chart_h * v / vmax)
+            bx = i * col_w
+            by = chart_y + (chart_h - bar_h)
+            bars.append(f'<rect x="{bx + col_w*0.15:.1f}" y="{by:.1f}" '
+                       f'width="{col_w*0.7:.2f}" height="{bar_h:.1f}" fill="{ACCENT}"/>')
+        parts.append("\n".join(bars))
 
-        parts.append(mini_chart(0, series["total"], "Total stargazers", ACCENT))
-        parts.append(mini_chart(W / 2 + 20, series["new"], "New stargazers per day", ACCENT))
-        y = chart_y + 14 + chart_h + 32
-    # Chart omitted entirely if the stargazer query failed outright, rather
-    # than rendering an empty axis with no bars.
+        # Month labels along the bottom, printed once per calendar month
+        # rather than once per week — 52 week-labels would collide into an
+        # unreadable smear at this width. A minimum pixel gap is enforced too:
+        # the very first week can land only a day or two into a new month,
+        # which would otherwise print that month's label directly on top of
+        # the previous one.
+        label_y = chart_y + chart_h + 16
+        seen_months = set()
+        last_label_x = float("-inf")
+        min_gap = 30
+        for i, wk in enumerate(weeks_list):
+            key = (wk.year, wk.month)
+            if key in seen_months:
+                continue
+            bx = i * col_w
+            if bx - last_label_x < min_gap:
+                continue
+            seen_months.add(key)
+            last_label_x = bx
+            parts.append(f'<text x="{bx:.1f}" y="{label_y}" class="lg">{wk.strftime("%b")}</text>')
+
+        parts.append(f'<text x="{W}" y="{chart_y}" class="lg" text-anchor="end">'
+                     f'peak {vmax}/wk</text>')
+        y = label_y + 24
+    # Chart omitted entirely if every repo's stats came back empty (still
+    # computing, or none readable), rather than rendering an empty axis.
 
     # ---- Lines changed (footer stat) ------------------------------------------
     if d["lines_added"] is not None:
