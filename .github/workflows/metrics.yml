@@ -1,135 +1,37 @@
-# Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
-  # Schedule updates (once a day is plenty — your stats don't change hourly)
-  schedule: [{cron: "0 0 * * *"}]
-  # Lets you run the workflow manually and on each push
+  schedule:
+    - cron: "0 6 * * *"
   workflow_dispatch:
-  push: {branches: ["master", "main"]}
+permissions:
+  contents: write
 jobs:
-  github-metrics:
+  panel:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Metrics (light)
-        uses: lowlighter/metrics@latest
-        with:
-          # Your GitHub token
-          # Required scope: public_access (default)
-          # Additional scopes you may need for these plugins:
-          #  - read:org  (for plugin_notable_from: organization)
-          #  - read:user
-          #  - repo      (optional, only if you want private repos included)
-          token: ${{ secrets.METRICS_TOKEN }}
-
-          filename: metrics-light.svg
-          user: itszubariel
-          template: classic
-          base: header, activity, community, repositories, metadata
-          config_display: large
-          config_timezone: Australia/Sydney
-
-          # Turns the default blue headings/links white instead
-          extras_css: |
-            h2, h2 svg { color: #ffffff !important; fill: #ffffff !important; }
-            a, a:visited { color: #ffffff !important; }
-
-          plugin_habits: yes
-          plugin_habits_charts: yes
-          plugin_habits_charts_type: classic
-          plugin_habits_days: 14
-          plugin_habits_facts: no
-          plugin_habits_from: 200
-          plugin_habits_languages_limit: 0
-
-          plugin_introduction: yes
-          plugin_introduction_title: yes
-
-          plugin_languages: yes
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_analysis_timeout_repositories: 7.5
-          plugin_languages_categories: markup, programming
-          plugin_languages_colors: github
-          plugin_languages_limit: 8
-          plugin_languages_recent_categories: markup, programming
-          plugin_languages_recent_days: 14
-          plugin_languages_recent_load: 300
-          plugin_languages_sections: most-used
-          plugin_languages_threshold: 0%
-
-          plugin_lines: yes
-          plugin_lines_history_limit: 1
-          plugin_lines_repositories_limit: 4
-          plugin_lines_sections: base
-
-          plugin_notable: yes
-          plugin_notable_from: organization
-          plugin_notable_types: commit
-
-          plugin_repositories: yes
-          plugin_repositories_order: pinned, starred, random
-
-          plugin_stargazers: yes
-          plugin_stargazers_charts: yes
-          plugin_stargazers_charts_type: classic
-          plugin_stargazers_days: 14
-
-      - name: Metrics (dark)
-        uses: lowlighter/metrics@latest
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-
-          filename: metrics-dark.svg
-          user: itszubariel
-          template: classic
-          base: header, activity, community, repositories, metadata
-          config_display: large
-          config_timezone: Australia/Sydney
-          query: |
-            theme=dark
-
-          # Turns the default blue headings/links white instead
-          extras_css: |
-            h2, h2 svg { color: #ffffff !important; fill: #ffffff !important; }
-            a, a:visited { color: #ffffff !important; }
-
-          plugin_habits: yes
-          plugin_habits_charts: yes
-          plugin_habits_charts_type: classic
-          plugin_habits_days: 14
-          plugin_habits_facts: no
-          plugin_habits_from: 200
-          plugin_habits_languages_limit: 0
-
-          plugin_introduction: yes
-          plugin_introduction_title: yes
-
-          plugin_languages: yes
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_analysis_timeout_repositories: 7.5
-          plugin_languages_categories: markup, programming
-          plugin_languages_colors: github
-          plugin_languages_limit: 8
-          plugin_languages_recent_categories: markup, programming
-          plugin_languages_recent_days: 14
-          plugin_languages_recent_load: 300
-          plugin_languages_sections: most-used
-          plugin_languages_threshold: 0%
-
-          plugin_lines: yes
-          plugin_lines_history_limit: 1
-          plugin_lines_repositories_limit: 4
-          plugin_lines_sections: base
-
-          plugin_notable: yes
-          plugin_notable_from: organization
-          plugin_notable_types: commit
-
-          plugin_repositories: yes
-          plugin_repositories_order: pinned, starred, random
-
-          plugin_stargazers: yes
-          plugin_stargazers_charts: yes
-          plugin_stargazers_charts_type: classic
-          plugin_stargazers_days: 14
+      # The counts include private repositories, so this needs a token that can
+      # see them. Without one the figures would be wrong in the same direction
+      # as the widget this replaced.
+      - name: Regenerate the panel
+        run: python3 .github/panel.py .
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+      # GitHub proxies these images and caches by URL, so a changed file at the
+      # same path keeps serving the old picture. The hash in the query string
+      # makes each regeneration a new URL.
+      - name: Point the README at the new content
+        run: |
+          H=$(sha256sum metrics-dark.svg | cut -c1-8)
+          sed -i -E "s/\?v=[0-9a-f]{8}/?v=$H/g" README.md
+      - name: Commit if it changed
+        run: |
+          if [ -n "$(git status --porcelain metrics-dark.svg metrics-light.svg README.md)" ]; then
+            git config user.name "itszubariel"
+            git config user.email "itszubariel@users.noreply.github.com"
+            git add metrics-dark.svg metrics-light.svg README.md
+            git commit -m "Update metrics panel"
+            git push
+          fi
