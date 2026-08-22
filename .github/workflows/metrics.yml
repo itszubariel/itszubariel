@@ -13,12 +13,18 @@ jobs:
         with:
           filename: metrics-light.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          base: header, activity, community, repositories, metadata
+          base: activity, repositories, metadata
+          config_octicon: no
+          plugin_languages: yes
+          plugin_languages_limit: 5
 
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics-dark.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          base: header, activity, community, repositories, metadata
+          base: activity, repositories, metadata
+          config_octicon: no
+          plugin_languages: yes
+          plugin_languages_limit: 5
           query: |
             theme=dark
