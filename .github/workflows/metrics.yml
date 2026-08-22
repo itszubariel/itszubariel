@@ -1,6 +1,9 @@
+# Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
+  # Schedule updates (once a day is plenty — your stats don't change hourly)
   schedule: [{cron: "0 0 * * *"}]
+  # Lets you run the workflow manually and on each push
   workflow_dispatch:
   push: {branches: ["master", "main"]}
 jobs:
@@ -12,6 +15,12 @@ jobs:
       - name: Metrics (light)
         uses: lowlighter/metrics@latest
         with:
+          # Your GitHub token
+          # Required scope: public_access (default)
+          # Additional scopes you may need for these plugins:
+          #  - read:org  (for plugin_notable_from: organization)
+          #  - read:user
+          #  - repo      (optional, only if you want private repos included)
           token: ${{ secrets.METRICS_TOKEN }}
 
           filename: metrics-light.svg
@@ -20,6 +29,13 @@ jobs:
           base: header, activity, community, repositories, metadata
           config_display: large
           config_timezone: Australia/Sydney
+          debug: yes
+          plugins_errors_fatal: yes
+
+          # Turns the default blue headings/links white instead
+          extras_css: |
+            h2, h2 svg { color: #ffffff !important; fill: #ffffff !important; }
+            a, a:visited { color: #ffffff !important; }
 
           plugin_habits: yes
           plugin_habits_charts_type: classic
@@ -54,7 +70,7 @@ jobs:
           plugin_notable_types: commit
 
           plugin_repositories: yes
-          plugin_repositories_order: featured, pinned, starred, random
+          plugin_repositories_order: pinned, starred, random
 
           plugin_stargazers: yes
           plugin_stargazers_charts: yes
@@ -75,6 +91,11 @@ jobs:
           query: |
             theme=dark
 
+          # Turns the default blue headings/links white instead
+          extras_css: |
+            h2, h2 svg { color: #ffffff !important; fill: #ffffff !important; }
+            a, a:visited { color: #ffffff !important; }
+
           plugin_habits: yes
           plugin_habits_charts_type: classic
           plugin_habits_days: 14
@@ -108,7 +129,7 @@ jobs:
           plugin_notable_types: commit
 
           plugin_repositories: yes
-          plugin_repositories_order: featured, pinned, starred, random
+          plugin_repositories_order: pinned, starred, random
 
           plugin_stargazers: yes
           plugin_stargazers_charts: yes
