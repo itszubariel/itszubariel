@@ -213,10 +213,29 @@ def lines_changed(repos, repo_limit=LINES_REPO_LIMIT, commit_cap=LINES_COMMIT_CA
     return (added, removed) if got_any else (None, None)
 
 
+def get_all_repos():
+    q = (f'{{user(login:"{OWNER}"){{'
+         f'repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
+         f'repositoriesContributedTo(first:100, contributionTypes:[COMMIT], includeUserRepositories:false){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
+         f'}}}}')
+    d = gh(["api", "graphql", "-f", f"query={q}"])
+    if not d or "data" not in d:
+        return []
+
+    user = d["data"]["user"]
+    repos = user["repositories"]["nodes"] + user["repositoriesContributedTo"]["nodes"]
+
+    # Deduplicate by nameWithOwner
+    seen = set()
+    unique_repos = []
+    for r in repos:
+        if r["nameWithOwner"] not in seen:
+            seen.add(r["nameWithOwner"])
+            unique_repos.append(r)
+    return unique_repos
+
 def collect():
-    repos = gh(["repo", "list", OWNER, "--limit", "200", "--json",
-                "name,stargazerCount,forkCount,isPrivate,primaryLanguage,"
-                "licenseInfo,diskUsage"]) or []
+    repos = get_all_repos()
     u = profile_extra()
 
     public = [r for r in repos if not r["isPrivate"]]
@@ -226,7 +245,7 @@ def collect():
     releases = 0
     got_release = False
     for r in repos:
-        cnt = gh(["api", f"repos/{OWNER}/{r['name']}/releases", "--jq", "length"])
+        cnt = gh(["api", f"repos/{r['owner']['login']}/{r['name']}/releases", "--jq", "length"])
         if isinstance(cnt, int):
             releases += cnt
             got_release = True
@@ -234,15 +253,25 @@ def collect():
     pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
-    # Highest-starred public repos, excluding the profile repo itself (its
-    # name matches OWNER and its stars aren't a reflection of any project).
+    # Top starred public repos
+    def format_name(r):
+        return r["nameWithOwner"] if r["owner"]["login"] != OWNER else r["name"]
+
     top_repos = sorted(
         (r for r in public if r["name"] != OWNER),
         key=lambda r: r["stargazerCount"], reverse=True
     )[:TOP_REPOS_LIMIT]
-    top_repos = [{"name": r["name"], "stars": r["stargazerCount"],
+    top_repos = [{"name": format_name(r), "stars": r["stargazerCount"],
                   "language": (r.get("primaryLanguage") or {}).get("name")}
                  for r in top_repos]
+
+    # Recently active repos
+    recent_repos = sorted(
+        (r for r in public if r["name"] != OWNER),
+        key=lambda r: r["pushedAt"], reverse=True
+    )[:TOP_REPOS_LIMIT]
+    recent_repos = [{"name": format_name(r), "language": (r.get("primaryLanguage") or {}).get("name")}
+                    for r in recent_repos]
 
     joined = u.get("createdAt")
     years = None
@@ -288,6 +317,7 @@ def collect():
         "languages": langs.most_common(5),
         "notable": notable_orgs(),
         "top_repos": top_repos,
+        "recent_repos": recent_repos,
         "commit_activity": commit_activity,
         "lines_added": added,
         "lines_removed": removed,
@@ -433,7 +463,7 @@ def build(d, theme="dark"):
     parts.append("\n".join(leg_parts))
     y = ly + 36
 
-    # ---- Community stats + Top repositories, side by side -------------------
+    # ---- Community stats + Top repositories + Recent repos -------------------
     parts.append(f'<text x="0" y="{y}" class="h">Community stats</text>')
     community_rows = [
         ("Member of", f'{n(d["orgs"])} organizations'),
@@ -454,9 +484,17 @@ def build(d, theme="dark"):
             parts.append(f'<text x="{280+220}" y="{ry}" class="v" text-anchor="end">'
                          f'\u2605 {n(r["stars"])}</text>')
             ry += 27
-    # No public repos to rank: the column is omitted rather than shown empty.
 
-    y += 32 + 27 * 5 + 24
+    if d["recent_repos"]:
+        parts.append(f'<text x="560" y="{y}" class="h">Recently active</text>')
+        ry = y + 32
+        for r in d["recent_repos"]:
+            colour = LANG_COLOURS.get(r["language"], FALLBACK_COLOUR)
+            parts.append(f'<circle cx="564" cy="{ry-4}" r="4" fill="{colour}"/>')
+            parts.append(f'<text x="574" y="{ry}" class="k">{esc(r["name"])}</text>')
+            ry += 27
+
+    y += 32 + 27 * max(5, len(d["top_repos"]), len(d["recent_repos"])) + 24
 
     # ---- Notable contributions (org badges) ---------------------------------
     if d["notable"]:
@@ -470,9 +508,7 @@ def build(d, theme="dark"):
                          f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
             parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
             bx += bw + 10
-        y += 26 + 40
-    # No orgs found (or the query failed): the section is omitted rather than
-    # shown empty, since an empty heading reads as a bug, not as a fact.
+        y += 26 + 80  # Increased gap here
 
     # ---- Weekly commit activity, last 12 months ------------------------------
     activity = d["commit_activity"]
