@@ -6,6 +6,11 @@
   I've been building software for about 5 years ranging from Discord bots, scripting languages to web tools, mods, and apps. I don't follow a set stack, I just build what I need, and I'm always learning along the way.
 </p>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./metrics-dark.svg">
+  <img src="./metrics-light.svg">
+</picture>
+
 ---
 
 ### Languages
