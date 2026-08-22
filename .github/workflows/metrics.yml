@@ -1,7 +1,7 @@
 name: Metrics
 on:
   schedule:
-    - cron: '0 0 * * *'   # runs daily
+    - cron: '0 0 * * *'
   workflow_dispatch:
 jobs:
   github-metrics:
@@ -11,6 +11,14 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          filename: metrics.svg
+          filename: metrics-light.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, activity, community, repositories, metadata
+
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics-dark.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, activity, community, repositories, metadata
+          query: |
+            theme=dark
