@@ -162,7 +162,8 @@ def commit_activity_series(repos, weeks=COMMIT_ACTIVITY_WEEKS, repo_limit=COMMIT
     for r in candidates:
         data = None
         for attempt in range(3):
-            data = gh(["api", f"repos/{OWNER}/{r['name']}/stats/commit_activity"])
+            # Pass --silent to suppress error messages for 404s we expect might happen
+            data = gh(["api", f"repos/{OWNER}/{r['name']}/stats/commit_activity", "--silent"])
             if isinstance(data, list) and data:
                 break
             time.sleep(2)
