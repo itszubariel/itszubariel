@@ -94,18 +94,11 @@ def profile_extra():
     the counts that make up the community section.
     """
     q = (f'{{user(login:"{OWNER}"){{name bio avatarUrl createdAt '
-         f'followers{{totalCount}} following{{totalCount}} organizations(first:20){{nodes{{login}}}} '
+         f'followers{{totalCount}} following{{totalCount}} organizations{{totalCount}} '
          f'starredRepositories{{totalCount}} watching{{totalCount}} '
          f'sponsorshipsAsSponsor{{totalCount}}}}}}')
     d = gh(["api", "graphql", "-f", f"query={q}"])
-    user = (d or {}).get("data", {}).get("user", {}) or {}
-    
-    # Process organizations into a flat list of logins
-    orgs = user.get("organizations", {}).get("nodes", [])
-    user["organizations_list"] = [o["login"] for o in orgs]
-    user["organizations_count"] = len(orgs)
-    
-    return user
+    return (d or {}).get("data", {}).get("user", {}) or {}
 
 
 def notable_orgs(limit=4):
@@ -266,7 +259,6 @@ def collect():
             releases += cnt
             got_release = True
 
-    pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
     # Top starred repos (including private if desired, currently restricted to public in logic, but here we change to use all repos)
@@ -316,8 +308,7 @@ def collect():
         "years": years,
         "followers": (u.get("followers") or {}).get("totalCount"),
         "following": (u.get("following") or {}).get("totalCount"),
-        "orgs": u.get("organizations_count"),
-        "orgs_list": u.get("organizations_list"),
+        "orgs": (u.get("organizations") or {}).get("totalCount"),
         "starred": (u.get("starredRepositories") or {}).get("totalCount"),
         "watching": (u.get("watching") or {}).get("totalCount"),
         "sponsoring": (u.get("sponsorshipsAsSponsor") or {}).get("totalCount"),
@@ -332,7 +323,7 @@ def collect():
         "forks": sum(r["forkCount"] for r in repos) if repos else None,
         "licensed": sum(1 for r in repos if r.get("licenseInfo")) if repos else None,
         "releases": releases if got_release else None,
-        "packages": pkgs,
+        "packages": None,
         "disk": round(sum(r.get("diskUsage") or 0 for r in repos) / 1024) if repos else None,
         "languages": langs.most_common(5),
         "notable": notable_orgs(),
