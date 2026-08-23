@@ -17,7 +17,7 @@
 <text x="0" y="136" class="k">scripting languages to web tools, mods, and apps.</text>
 <text x="0" y="176" class="h">Activity</text>
 <text x="0" y="208" class="k">Contributions</text>
-<text x="220" y="208" class="v" text-anchor="end">4,575</text>
+<text x="220" y="208" class="v" text-anchor="end">4,577</text>
 <text x="0" y="235" class="k">Pull requests opened</text>
 <text x="220" y="235" class="v" text-anchor="end">40</text>
 <text x="0" y="262" class="k">Merged</text>
@@ -28,18 +28,18 @@
 <text x="220" y="316" class="v" text-anchor="end">2</text>
 <text x="280" y="176" class="h">Repositories</text>
 <text x="280" y="208" class="k">Repositories</text>
-<text x="500" y="208" class="v" text-anchor="end">48  (48 public)</text>
+<text x="500" y="208" class="v" text-anchor="end">80  (48 public)</text>
 <text x="280" y="235" class="k">Releases</text>
-<text x="500" y="235" class="v" text-anchor="end">109</text>
+<text x="500" y="235" class="v" text-anchor="end">110</text>
 <text x="280" y="262" class="k">Packages</text>
 <text x="500" y="262" class="v" text-anchor="end">0</text>
 <text x="280" y="289" class="k">Licensed</text>
-<text x="500" y="289" class="v" text-anchor="end">38 of 48</text>
+<text x="500" y="289" class="v" text-anchor="end">47 of 80</text>
 <text x="280" y="316" class="k">Storage</text>
-<text x="500" y="316" class="v" text-anchor="end">7,973 MB</text>
+<text x="500" y="316" class="v" text-anchor="end">8,061 MB</text>
 <text x="560" y="176" class="h">Reach</text>
 <text x="560" y="208" class="k">Stars received</text>
-<text x="780" y="208" class="v" text-anchor="end">304</text>
+<text x="780" y="208" class="v" text-anchor="end">330</text>
 <text x="560" y="235" class="k">Forks</text>
 <text x="780" y="235" class="v" text-anchor="end">26</text>
 <text x="560" y="262" class="k">Followers</text>
@@ -47,27 +47,27 @@
 <text x="560" y="289" class="k">Following</text>
 <text x="780" y="289" class="v" text-anchor="end">4</text>
 <text x="560" y="316" class="k">Organizations</text>
-<text x="780" y="316" class="v" text-anchor="end">2</text>
+<text x="780" y="316" class="v" text-anchor="end">–</text>
 <text x="0" y="367" class="h">Languages</text>
 <clipPath id="barclip"><rect x="0" y="383" width="792" height="8" rx="4"/></clipPath>
-<g clip-path="url(#barclip)"><rect x="0.00" y="383" width="290.40" height="8" fill="#3178c6"/>
-<rect x="290.40" y="383" width="158.40" height="8" fill="#f1e05a"/>
-<rect x="448.80" y="383" width="132.00" height="8" fill="#e34c26"/>
-<rect x="580.80" y="383" width="132.00" height="8" fill="#dea584"/>
-<rect x="712.80" y="383" width="79.20" height="8" fill="#3572A5"/></g>
-<circle cx="4" cy="413" r="4" fill="#3178c6"/>
-<text x="14" y="417" class="lg">TypeScript</text>
-<circle cx="99.0" cy="413" r="4" fill="#f1e05a"/>
-<text x="109.0" y="417" class="lg">JavaScript</text>
-<circle cx="194.0" cy="413" r="4" fill="#e34c26"/>
-<text x="204.0" y="417" class="lg">HTML</text>
+<g clip-path="url(#barclip)"><rect x="0.00" y="383" width="330.00" height="8" fill="#e34c26"/>
+<rect x="330.00" y="383" width="211.20" height="8" fill="#3178c6"/>
+<rect x="541.20" y="383" width="118.80" height="8" fill="#f1e05a"/>
+<rect x="660.00" y="383" width="92.40" height="8" fill="#dea584"/>
+<rect x="752.40" y="383" width="39.60" height="8" fill="#3572A5"/></g>
+<circle cx="4" cy="413" r="4" fill="#e34c26"/>
+<text x="14" y="417" class="lg">HTML</text>
+<circle cx="57.6" cy="413" r="4" fill="#3178c6"/>
+<text x="67.6" y="417" class="lg">TypeScript</text>
+<circle cx="152.6" cy="413" r="4" fill="#f1e05a"/>
+<text x="162.6" y="417" class="lg">JavaScript</text>
 <circle cx="247.6" cy="413" r="4" fill="#dea584"/>
 <text x="257.6" y="417" class="lg">Rust</text>
 <circle cx="301.2" cy="413" r="4" fill="#3572A5"/>
 <text x="311.2" y="417" class="lg">Python</text>
 <text x="0" y="449" class="h">Community stats</text>
 <text x="0" y="481" class="k">Member of</text>
-<text x="220" y="481" class="v" text-anchor="end">2 organizations</text>
+<text x="220" y="481" class="v" text-anchor="end">– organizations</text>
 <text x="0" y="508" class="k">Following</text>
 <text x="220" y="508" class="v" text-anchor="end">4 users</text>
 <text x="0" y="535" class="k">Sponsoring</text>
@@ -93,16 +93,16 @@
 <text x="294" y="589" class="k">zbrlang/zbr-web...</text>
 <text x="495" y="589" class="v" text-anchor="end">★ 12</text>
 <text x="560" y="449" class="h">Recently active</text>
-<circle cx="564" cy="477" r="4" fill="#dea584"/>
-<text x="574" y="481" class="k">znet</text>
-<circle cx="564" cy="504" r="4" fill="#3178c6"/>
-<text x="574" y="508" class="k">ZapQR</text>
-<circle cx="564" cy="531" r="4" fill="#e34c26"/>
-<text x="574" y="535" class="k">Linktree</text>
-<circle cx="564" cy="558" r="4" fill="#3178c6"/>
-<text x="574" y="562" class="k">scrobbler</text>
-<circle cx="564" cy="585" r="4" fill="#3178c6"/>
-<text x="574" y="589" class="k">Track-Birthdays</text>
+<circle cx="564" cy="477" r="4" fill="#e34c26"/>
+<text x="574" y="481" class="k">Linktree-Private</text>
+<circle cx="564" cy="504" r="4" fill="#dea584"/>
+<text x="574" y="508" class="k">znet</text>
+<circle cx="564" cy="531" r="4" fill="#3178c6"/>
+<text x="574" y="535" class="k">ZapQR</text>
+<circle cx="564" cy="558" r="4" fill="#e34c26"/>
+<text x="574" y="562" class="k">Linktree</text>
+<circle cx="564" cy="585" r="4" fill="#dea584"/>
+<text x="574" y="589" class="k">local-llm</text>
 <text x="0" y="640" class="h">Notable contributions</text>
 <rect x="0" y="660" width="160.0" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
 <text x="80.0" y="677" class="k" text-anchor="middle">@NilPointer-Software</text>
