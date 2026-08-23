@@ -5,7 +5,7 @@
     class="only-light"
   />
   <img
-    src="metrics-dark.svg?v=d12b1fc8"
+    src="metrics-light.svg?v=d12b1fc8"
     alt="GitHub metrics"
     class="only-dark"
   />
