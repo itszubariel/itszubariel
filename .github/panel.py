@@ -253,11 +253,14 @@ def collect():
     # list of names, so this stays correct as repos are added or renamed.
     releases = 0
     got_release = False
-    for r in repos:
+    print(f"Processing {len(repos)} repositories for releases...")
+    for i, r in enumerate(repos):
+        print(f"  {i+1}/{len(repos)}: {r['name']}")
         cnt = gh(["api", f"repos/{r['owner']['login']}/{r['name']}/releases", "--jq", "length"])
         if isinstance(cnt, int):
             releases += cnt
             got_release = True
+    print("Releases processing complete.")
 
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
