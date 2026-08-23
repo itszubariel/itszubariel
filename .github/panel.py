@@ -297,7 +297,7 @@ def collect():
     commit_activity = commit_activity_series(repos)
 
     # Custom bio override
-    CUSTOM_BIO = "Hi, I'm Zubariel, a self-taught developer who just builds things, whatever catches my interest. I've been building software for about 5 years ranging from Discord bots, scripting languages to web tools, mods, and apps. I don't follow a set stack, I just build what I need, and I'm always learning along the way."  # Set this to your desired text, e.g., "Software Engineer & Coffee Enthusiast"
+    CUSTOM_BIO = "Hi, I'm Zubariel, a self-taught developer who just builds things, whatever catches my interest. I've been building software for about 5 years ranging from Discord bots, scripting languages to web tools, mods, and apps."  # Set this to your desired text, e.g., "Software Engineer & Coffee Enthusiast"
 
     return {
         "name": u.get("name") or OWNER,
