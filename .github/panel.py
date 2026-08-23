@@ -44,10 +44,15 @@ TOP_REPOS_LIMIT = 5
 def gh(args):
     r = subprocess.run(["gh", *args], capture_output=True, text=True)
     if r.returncode != 0:
+        print(f"gh command failed: {' '.join(args)}")
+        print(f"returncode: {r.returncode}")
+        print(f"stdout: {r.stdout}")
+        print(f"stderr: {r.stderr}")
         return None
     try:
         return json.loads(r.stdout)
     except json.JSONDecodeError:
+        print(f"json decode failed: {r.stdout}")
         return None
 
 
@@ -86,10 +91,7 @@ def contributions_all_time():
 def profile_extra():
     """
     Header and community fields in one query: avatar, bio, joined date, and
-    the counts that make up the community section. sponsorshipsAsSponsor is
-    kept in the same query but read defensively below — a token without
-    sponsors access can fail that one field without failing the rest, since
-    GraphQL still returns partial data alongside a top-level errors array.
+    the counts that make up the community section.
     """
     q = (f'{{user(login:"{OWNER}"){{name bio avatarUrl createdAt '
          f'followers{{totalCount}} following{{totalCount}} organizations{{totalCount}} '
@@ -99,7 +101,7 @@ def profile_extra():
     return (d or {}).get("data", {}).get("user", {}) or {}
 
 
-def notable_orgs(limit=6):
+def notable_orgs(limit=4):
     """
     Organizations whose repositories this account has committed to, excluding
     the account's own repositories. Deduplicated and capped, since a long
@@ -153,7 +155,8 @@ def commit_activity_series(repos, weeks=COMMIT_ACTIVITY_WEEKS, repo_limit=COMMIT
     for r in candidates:
         data = None
         for attempt in range(3):
-            data = gh(["api", f"repos/{OWNER}/{r['name']}/stats/commit_activity"])
+            # Pass --silent to suppress error messages for 404s we expect might happen
+            data = gh(["api", f"repos/{OWNER}/{r['name']}/stats/commit_activity", "--silent"])
             if isinstance(data, list) and data:
                 break
             time.sleep(2)
@@ -216,8 +219,8 @@ def lines_changed(repos, repo_limit=LINES_REPO_LIMIT, commit_cap=LINES_COMMIT_CA
 def get_all_repos():
     # Fetch user repos + member orgs repos
     q = (f'{{user(login:"{OWNER}"){{'
-         f'repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
-         f'organizations(first:20){{nodes{{repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
+         f'repositories(first:100){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
+         f'organizations(first:20){{nodes{{repositories(first:100){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
          f'}}}}')
     d = gh(["api", "graphql", "-f", f"query={q}"])
     if not d or "data" not in d:
@@ -250,21 +253,23 @@ def collect():
     # list of names, so this stays correct as repos are added or renamed.
     releases = 0
     got_release = False
-    for r in repos:
+    print(f"Processing {len(repos)} repositories for releases...")
+    for i, r in enumerate(repos):
+        print(f"  {i+1}/{len(repos)}: {r['name']}")
         cnt = gh(["api", f"repos/{r['owner']['login']}/{r['name']}/releases", "--jq", "length"])
         if isinstance(cnt, int):
             releases += cnt
             got_release = True
+    print("Releases processing complete.")
 
-    pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
-    # Top starred public repos
+    # Top starred repos (including private if desired, currently restricted to public in logic, but here we change to use all repos)
     def format_name(r):
         return r["nameWithOwner"] if r["owner"]["login"] != OWNER else r["name"]
 
     top_repos = sorted(
-        (r for r in public if r["name"] != OWNER),
+        (r for r in repos if r["name"] != OWNER),
         key=lambda r: r["stargazerCount"], reverse=True
     )[:TOP_REPOS_LIMIT]
     top_repos = [{"name": truncate_name(format_name(r)), "stars": r["stargazerCount"],
@@ -273,7 +278,7 @@ def collect():
 
     # Recently active repos
     recent_repos = sorted(
-        (r for r in public if r["name"] != OWNER),
+        (r for r in repos if r["name"] != OWNER),
         key=lambda r: r["pushedAt"], reverse=True
     )[:TOP_REPOS_LIMIT]
     recent_repos = [{"name": truncate_name(format_name(r)), "language": (r.get("primaryLanguage") or {}).get("name")}
@@ -317,11 +322,11 @@ def collect():
         "issues": search_count(f"is:issue author:{OWNER}"),
         "repos": len(repos) or None,
         "repos_public": len(public),
-        "stars": sum(r["stargazerCount"] for r in public if r["name"] != OWNER) if repos else None,
+        "stars": sum(r["stargazerCount"] for r in repos if r["name"] != OWNER) if repos else None,
         "forks": sum(r["forkCount"] for r in repos) if repos else None,
         "licensed": sum(1 for r in repos if r.get("licenseInfo")) if repos else None,
         "releases": releases if got_release else None,
-        "packages": pkgs,
+        "packages": None,
         "disk": round(sum(r.get("diskUsage") or 0 for r in repos) / 1024) if repos else None,
         "languages": langs.most_common(5),
         "notable": notable_orgs(),
@@ -518,10 +523,16 @@ def build(d, theme="dark"):
 
     y += 32 + 27 * max(5, len(d["top_repos"]), len(d["recent_repos"])) + 24
 
-    # ---- Notable contributions (org badges) ---------------------------------
+    # ---- Notable contributions and Organizations ----------------------------
+    # We'll split the width into two columns. Left: Notable, Right: Orgs
+    # Using the same badge style for both for consistency.
+    
+    col_y = y
+    
+    # Left column: Notable contributions
     if d["notable"]:
-        parts.append(f'<text x="0" y="{y}" class="h">Notable contributions</text>')
-        by = y + 20
+        parts.append(f'<text x="0" y="{col_y}" class="h">Notable contributions</text>')
+        by = col_y + 20
         bx = 0
         for org in d["notable"]:
             label = f"@{org}"
@@ -530,7 +541,21 @@ def build(d, theme="dark"):
                          f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
             parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
             bx += bw + 10
-        y += 26 + 60  # Decreased gap here
+            
+    # Right column: Organizations (as badges)
+    if d["orgs_list"]:
+        parts.append(f'<text x="400" y="{col_y}" class="h">Organizations</text>')
+        by = col_y + 20
+        bx = 400
+        for org in d["orgs_list"]:
+            label = f"@{org}"
+            bw = 16 + len(label) * 7.2
+            parts.append(f'<rect x="{bx}" y="{by}" width="{bw:.1f}" height="26" rx="13" '
+                         f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
+            parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
+            bx += bw + 10
+
+    y += 26 + 60  # Updated gap here based on badges
 
     # ---- Weekly commit activity, last 12 months ------------------------------
     activity = d["commit_activity"]
