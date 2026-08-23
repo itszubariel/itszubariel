@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="792" height="796" viewBox="0 0 792 796" role="img" aria-label="GitHub metrics for itszubariel">
+<svg xmlns="http://www.w3.org/2000/svg" width="792" height="864" viewBox="0 0 792 864" role="img" aria-label="GitHub metrics for itszubariel">
 <style>
   .name { fill: #1f2328; font: 600 20px "Mona Sans VF", -apple-system, "system-ui", "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
   .h { fill: #1f2328; font: 600 16px "Mona Sans VF", -apple-system, "system-ui", "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
@@ -12,163 +12,165 @@
 <text x="80" y="26" class="name">Zubariel</text>
 <text x="80" y="48" class="k">Joined GitHub 3.1 years ago</text>
 <text x="80" y="68" class="k">Followed by 13 users</text>
-<text x="0" y="96" class="k">Hi, I'm Zubariel, a self-taught developer who just builds things, whatever catches my interest. I've been building software for about 5 years ranging from Discord bots, scripting languages to web tools, mods, and apps. I don't follow a set stack, I just build what I need, and I'm always learning along the way.</text>
-<text x="0" y="128" class="h">Activity</text>
-<text x="0" y="160" class="k">Contributions</text>
-<text x="220" y="160" class="v" text-anchor="end">4,555</text>
-<text x="0" y="187" class="k">Pull requests opened</text>
-<text x="220" y="187" class="v" text-anchor="end">40</text>
-<text x="0" y="214" class="k">Merged</text>
-<text x="220" y="214" class="v" text-anchor="end">32</text>
-<text x="0" y="241" class="k">Pull requests reviewed</text>
-<text x="220" y="241" class="v" text-anchor="end">0</text>
-<text x="0" y="268" class="k">Issues opened</text>
-<text x="220" y="268" class="v" text-anchor="end">2</text>
-<text x="280" y="128" class="h">Repositories</text>
-<text x="280" y="160" class="k">Repositories</text>
-<text x="500" y="160" class="v" text-anchor="end">48  (48 public)</text>
-<text x="280" y="187" class="k">Releases</text>
-<text x="500" y="187" class="v" text-anchor="end">109</text>
-<text x="280" y="214" class="k">Packages</text>
-<text x="500" y="214" class="v" text-anchor="end">–</text>
-<text x="280" y="241" class="k">Licensed</text>
-<text x="500" y="241" class="v" text-anchor="end">38 of 48</text>
-<text x="280" y="268" class="k">Storage</text>
-<text x="500" y="268" class="v" text-anchor="end">7,969 MB</text>
-<text x="560" y="128" class="h">Reach</text>
-<text x="560" y="160" class="k">Stars received</text>
-<text x="780" y="160" class="v" text-anchor="end">304</text>
-<text x="560" y="187" class="k">Forks</text>
-<text x="780" y="187" class="v" text-anchor="end">26</text>
-<text x="560" y="214" class="k">Followers</text>
-<text x="780" y="214" class="v" text-anchor="end">13</text>
-<text x="560" y="241" class="k">Following</text>
-<text x="780" y="241" class="v" text-anchor="end">4</text>
-<text x="560" y="268" class="k">Organizations</text>
-<text x="780" y="268" class="v" text-anchor="end">2</text>
-<text x="0" y="319" class="h">Languages</text>
-<clipPath id="barclip"><rect x="0" y="335" width="792" height="8" rx="4"/></clipPath>
-<g clip-path="url(#barclip)"><rect x="0.00" y="335" width="290.40" height="8" fill="#3178c6"/>
-<rect x="290.40" y="335" width="158.40" height="8" fill="#f1e05a"/>
-<rect x="448.80" y="335" width="132.00" height="8" fill="#e34c26"/>
-<rect x="580.80" y="335" width="132.00" height="8" fill="#dea584"/>
-<rect x="712.80" y="335" width="79.20" height="8" fill="#3572A5"/></g>
-<circle cx="4" cy="365" r="4" fill="#3178c6"/>
-<text x="14" y="369" class="lg">TypeScript</text>
-<circle cx="99.0" cy="365" r="4" fill="#f1e05a"/>
-<text x="109.0" y="369" class="lg">JavaScript</text>
-<circle cx="194.0" cy="365" r="4" fill="#e34c26"/>
-<text x="204.0" y="369" class="lg">HTML</text>
-<circle cx="247.6" cy="365" r="4" fill="#dea584"/>
-<text x="257.6" y="369" class="lg">Rust</text>
-<circle cx="301.2" cy="365" r="4" fill="#3572A5"/>
-<text x="311.2" y="369" class="lg">Python</text>
-<text x="0" y="401" class="h">Community stats</text>
-<text x="0" y="433" class="k">Member of</text>
-<text x="220" y="433" class="v" text-anchor="end">2 organizations</text>
-<text x="0" y="460" class="k">Following</text>
-<text x="220" y="460" class="v" text-anchor="end">4 users</text>
-<text x="0" y="487" class="k">Sponsoring</text>
-<text x="220" y="487" class="v" text-anchor="end">0 accounts</text>
-<text x="0" y="514" class="k">Starred</text>
-<text x="220" y="514" class="v" text-anchor="end">65 repositories</text>
-<text x="0" y="541" class="k">Watching</text>
-<text x="220" y="541" class="v" text-anchor="end">18 repositories</text>
-<text x="280" y="401" class="h">Top repositories</text>
-<circle cx="284" cy="429" r="4" fill="#3178c6"/>
-<text x="294" y="433" class="k">typesnippet/ant...</text>
-<text x="495" y="433" class="v" text-anchor="end">★ 93</text>
-<circle cx="284" cy="456" r="4" fill="#e34c26"/>
-<text x="294" y="460" class="k">BDTools</text>
-<text x="495" y="460" class="v" text-anchor="end">★ 18</text>
-<circle cx="284" cy="483" r="4" fill="#dea584"/>
-<text x="294" y="487" class="k">zbrlang/zbr</text>
-<text x="495" y="487" class="v" text-anchor="end">★ 14</text>
-<circle cx="284" cy="510" r="4" fill="#3178c6"/>
-<text x="294" y="514" class="k">typesnippet/mui...</text>
-<text x="495" y="514" class="v" text-anchor="end">★ 13</text>
-<circle cx="284" cy="537" r="4" fill="#8b949e"/>
-<text x="294" y="541" class="k">zbrlang/zbr-web...</text>
-<text x="495" y="541" class="v" text-anchor="end">★ 12</text>
-<text x="560" y="401" class="h">Recently active</text>
-<circle cx="564" cy="429" r="4" fill="#dea584"/>
-<text x="574" y="433" class="k">znet</text>
-<circle cx="564" cy="456" r="4" fill="#3178c6"/>
-<text x="574" y="460" class="k">ZapQR</text>
-<circle cx="564" cy="483" r="4" fill="#e34c26"/>
-<text x="574" y="487" class="k">Linktree</text>
-<circle cx="564" cy="510" r="4" fill="#3178c6"/>
-<text x="574" y="514" class="k">scrobbler</text>
-<circle cx="564" cy="537" r="4" fill="#3178c6"/>
-<text x="574" y="541" class="k">Track-Birthdays</text>
-<text x="0" y="592" class="h">Notable contributions</text>
-<rect x="0" y="612" width="160.0" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
-<text x="80.0" y="629" class="k" text-anchor="middle">@NilPointer-Software</text>
-<rect x="170.0" y="612" width="73.6" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
-<text x="206.8" y="629" class="k" text-anchor="middle">@zbrlang</text>
-<rect x="253.6" y="612" width="109.6" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
-<text x="308.4" y="629" class="k" text-anchor="middle">@free-domains</text>
-<text x="0" y="658" class="h">Weekly commit activity</text>
-<rect x="2.3" y="738.9" width="10.66" height="9.1" fill="#3fb950"/>
-<rect x="17.5" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="32.7" y="737.9" width="10.66" height="10.1" fill="#3fb950"/>
-<rect x="48.0" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="63.2" y="744.2" width="10.66" height="3.8" fill="#3fb950"/>
-<rect x="78.4" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="93.7" y="722.0" width="10.66" height="26.0" fill="#3fb950"/>
-<rect x="108.9" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="124.1" y="703.4" width="10.66" height="44.6" fill="#3fb950"/>
-<rect x="139.4" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="154.6" y="678.0" width="10.66" height="70.0" fill="#3fb950"/>
-<rect x="169.8" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="185.1" y="690.5" width="10.66" height="57.5" fill="#3fb950"/>
-<rect x="200.3" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="215.5" y="738.1" width="10.66" height="9.9" fill="#3fb950"/>
-<rect x="230.7" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="246.0" y="738.3" width="10.66" height="9.7" fill="#3fb950"/>
-<rect x="261.2" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="276.4" y="739.5" width="10.66" height="8.5" fill="#3fb950"/>
-<rect x="291.7" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="306.9" y="737.3" width="10.66" height="10.7" fill="#3fb950"/>
-<rect x="322.1" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="337.4" y="738.3" width="10.66" height="9.7" fill="#3fb950"/>
-<rect x="352.6" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="367.8" y="740.7" width="10.66" height="7.3" fill="#3fb950"/>
-<rect x="383.1" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="398.3" y="741.7" width="10.66" height="6.3" fill="#3fb950"/>
-<rect x="413.5" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="428.7" y="739.9" width="10.66" height="8.1" fill="#3fb950"/>
-<rect x="444.0" y="736.5" width="10.66" height="11.5" fill="#3fb950"/>
-<rect x="459.2" y="737.9" width="10.66" height="10.1" fill="#3fb950"/>
-<rect x="474.4" y="736.3" width="10.66" height="11.7" fill="#3fb950"/>
-<rect x="489.7" y="738.1" width="10.66" height="9.9" fill="#3fb950"/>
-<rect x="504.9" y="733.3" width="10.66" height="14.7" fill="#3fb950"/>
-<rect x="520.1" y="729.0" width="10.66" height="19.0" fill="#3fb950"/>
-<rect x="535.4" y="728.6" width="10.66" height="19.4" fill="#3fb950"/>
-<rect x="550.6" y="741.5" width="10.66" height="6.5" fill="#3fb950"/>
-<rect x="565.8" y="740.3" width="10.66" height="7.7" fill="#3fb950"/>
-<rect x="581.1" y="738.5" width="10.66" height="9.5" fill="#3fb950"/>
-<rect x="596.3" y="744.2" width="10.66" height="3.8" fill="#3fb950"/>
-<rect x="611.5" y="742.1" width="10.66" height="5.9" fill="#3fb950"/>
-<rect x="626.7" y="744.2" width="10.66" height="3.8" fill="#3fb950"/>
-<rect x="642.0" y="735.5" width="10.66" height="12.5" fill="#3fb950"/>
-<rect x="657.2" y="740.9" width="10.66" height="7.1" fill="#3fb950"/>
-<rect x="672.4" y="732.1" width="10.66" height="15.9" fill="#3fb950"/>
-<rect x="687.7" y="729.6" width="10.66" height="18.4" fill="#3fb950"/>
-<rect x="702.9" y="744.6" width="10.66" height="3.4" fill="#3fb950"/>
-<rect x="718.1" y="738.9" width="10.66" height="9.1" fill="#3fb950"/>
-<rect x="733.4" y="727.6" width="10.66" height="20.4" fill="#3fb950"/>
-<rect x="748.6" y="718.1" width="10.66" height="29.9" fill="#3fb950"/>
-<rect x="763.8" y="726.0" width="10.66" height="22.0" fill="#3fb950"/>
-<rect x="779.1" y="748.0" width="10.66" height="0.0" fill="#3fb950"/>
-<text x="0.0" y="764" class="lg">Dec</text>
-<text x="121.8" y="764" class="lg">Jan</text>
-<text x="243.7" y="764" class="lg">Feb</text>
-<text x="365.5" y="764" class="lg">Mar</text>
-<text x="472.2" y="764" class="lg">Apr</text>
-<text x="533.1" y="764" class="lg">May</text>
-<text x="609.2" y="764" class="lg">Jun</text>
-<text x="670.2" y="764" class="lg">Jul</text>
-<text x="731.1" y="764" class="lg">Aug</text>
-<text x="792" y="678" class="lg" text-anchor="end">peak 347/wk</text>
+<text x="0" y="96" class="k">Hi, I'm Zubariel, a self-taught developer who just builds things, whatever catches my</text>
+<text x="0" y="116" class="k">interest. I've been building software for about 5 years ranging from Discord bots,</text>
+<text x="0" y="136" class="k">scripting languages to web tools, mods, and apps. I don't follow a set stack, I just</text>
+<text x="0" y="176" class="h">Activity</text>
+<text x="0" y="208" class="k">Contributions</text>
+<text x="220" y="208" class="v" text-anchor="end">4,551</text>
+<text x="0" y="235" class="k">Pull requests opened</text>
+<text x="220" y="235" class="v" text-anchor="end">40</text>
+<text x="0" y="262" class="k">Merged</text>
+<text x="220" y="262" class="v" text-anchor="end">32</text>
+<text x="0" y="289" class="k">Pull requests reviewed</text>
+<text x="220" y="289" class="v" text-anchor="end">0</text>
+<text x="0" y="316" class="k">Issues opened</text>
+<text x="220" y="316" class="v" text-anchor="end">2</text>
+<text x="280" y="176" class="h">Repositories</text>
+<text x="280" y="208" class="k">Repositories</text>
+<text x="500" y="208" class="v" text-anchor="end">48  (48 public)</text>
+<text x="280" y="235" class="k">Releases</text>
+<text x="500" y="235" class="v" text-anchor="end">109</text>
+<text x="280" y="262" class="k">Packages</text>
+<text x="500" y="262" class="v" text-anchor="end">–</text>
+<text x="280" y="289" class="k">Licensed</text>
+<text x="500" y="289" class="v" text-anchor="end">38 of 48</text>
+<text x="280" y="316" class="k">Storage</text>
+<text x="500" y="316" class="v" text-anchor="end">7,969 MB</text>
+<text x="560" y="176" class="h">Reach</text>
+<text x="560" y="208" class="k">Stars received</text>
+<text x="780" y="208" class="v" text-anchor="end">304</text>
+<text x="560" y="235" class="k">Forks</text>
+<text x="780" y="235" class="v" text-anchor="end">26</text>
+<text x="560" y="262" class="k">Followers</text>
+<text x="780" y="262" class="v" text-anchor="end">13</text>
+<text x="560" y="289" class="k">Following</text>
+<text x="780" y="289" class="v" text-anchor="end">4</text>
+<text x="560" y="316" class="k">Organizations</text>
+<text x="780" y="316" class="v" text-anchor="end">2</text>
+<text x="0" y="367" class="h">Languages</text>
+<clipPath id="barclip"><rect x="0" y="383" width="792" height="8" rx="4"/></clipPath>
+<g clip-path="url(#barclip)"><rect x="0.00" y="383" width="290.40" height="8" fill="#3178c6"/>
+<rect x="290.40" y="383" width="158.40" height="8" fill="#f1e05a"/>
+<rect x="448.80" y="383" width="132.00" height="8" fill="#e34c26"/>
+<rect x="580.80" y="383" width="132.00" height="8" fill="#dea584"/>
+<rect x="712.80" y="383" width="79.20" height="8" fill="#3572A5"/></g>
+<circle cx="4" cy="413" r="4" fill="#3178c6"/>
+<text x="14" y="417" class="lg">TypeScript</text>
+<circle cx="99.0" cy="413" r="4" fill="#f1e05a"/>
+<text x="109.0" y="417" class="lg">JavaScript</text>
+<circle cx="194.0" cy="413" r="4" fill="#e34c26"/>
+<text x="204.0" y="417" class="lg">HTML</text>
+<circle cx="247.6" cy="413" r="4" fill="#dea584"/>
+<text x="257.6" y="417" class="lg">Rust</text>
+<circle cx="301.2" cy="413" r="4" fill="#3572A5"/>
+<text x="311.2" y="417" class="lg">Python</text>
+<text x="0" y="449" class="h">Community stats</text>
+<text x="0" y="481" class="k">Member of</text>
+<text x="220" y="481" class="v" text-anchor="end">2 organizations</text>
+<text x="0" y="508" class="k">Following</text>
+<text x="220" y="508" class="v" text-anchor="end">4 users</text>
+<text x="0" y="535" class="k">Sponsoring</text>
+<text x="220" y="535" class="v" text-anchor="end">0 accounts</text>
+<text x="0" y="562" class="k">Starred</text>
+<text x="220" y="562" class="v" text-anchor="end">65 repositories</text>
+<text x="0" y="589" class="k">Watching</text>
+<text x="220" y="589" class="v" text-anchor="end">18 repositories</text>
+<text x="280" y="449" class="h">Top repositories</text>
+<circle cx="284" cy="477" r="4" fill="#3178c6"/>
+<text x="294" y="481" class="k">typesnippet/ant...</text>
+<text x="495" y="481" class="v" text-anchor="end">★ 93</text>
+<circle cx="284" cy="504" r="4" fill="#e34c26"/>
+<text x="294" y="508" class="k">BDTools</text>
+<text x="495" y="508" class="v" text-anchor="end">★ 18</text>
+<circle cx="284" cy="531" r="4" fill="#dea584"/>
+<text x="294" y="535" class="k">zbrlang/zbr</text>
+<text x="495" y="535" class="v" text-anchor="end">★ 14</text>
+<circle cx="284" cy="558" r="4" fill="#3178c6"/>
+<text x="294" y="562" class="k">typesnippet/mui...</text>
+<text x="495" y="562" class="v" text-anchor="end">★ 13</text>
+<circle cx="284" cy="585" r="4" fill="#8b949e"/>
+<text x="294" y="589" class="k">zbrlang/zbr-web...</text>
+<text x="495" y="589" class="v" text-anchor="end">★ 12</text>
+<text x="560" y="449" class="h">Recently active</text>
+<circle cx="564" cy="477" r="4" fill="#dea584"/>
+<text x="574" y="481" class="k">znet</text>
+<circle cx="564" cy="504" r="4" fill="#3178c6"/>
+<text x="574" y="508" class="k">ZapQR</text>
+<circle cx="564" cy="531" r="4" fill="#e34c26"/>
+<text x="574" y="535" class="k">Linktree</text>
+<circle cx="564" cy="558" r="4" fill="#3178c6"/>
+<text x="574" y="562" class="k">scrobbler</text>
+<circle cx="564" cy="585" r="4" fill="#3178c6"/>
+<text x="574" y="589" class="k">Track-Birthdays</text>
+<text x="0" y="640" class="h">Notable contributions</text>
+<rect x="0" y="660" width="160.0" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
+<text x="80.0" y="677" class="k" text-anchor="middle">@NilPointer-Software</text>
+<rect x="170.0" y="660" width="73.6" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
+<text x="206.8" y="677" class="k" text-anchor="middle">@zbrlang</text>
+<rect x="253.6" y="660" width="109.6" height="26" rx="13" fill="#f6f8fa" stroke="#d1d9e0"/>
+<text x="308.4" y="677" class="k" text-anchor="middle">@free-domains</text>
+<text x="0" y="726" class="h">Weekly commit activity</text>
+<rect x="2.3" y="806.9" width="10.66" height="9.1" fill="#3fb950"/>
+<rect x="17.5" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="32.7" y="805.9" width="10.66" height="10.1" fill="#3fb950"/>
+<rect x="48.0" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="63.2" y="812.2" width="10.66" height="3.8" fill="#3fb950"/>
+<rect x="78.4" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="93.7" y="790.0" width="10.66" height="26.0" fill="#3fb950"/>
+<rect x="108.9" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="124.1" y="771.4" width="10.66" height="44.6" fill="#3fb950"/>
+<rect x="139.4" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="154.6" y="746.0" width="10.66" height="70.0" fill="#3fb950"/>
+<rect x="169.8" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="185.1" y="758.5" width="10.66" height="57.5" fill="#3fb950"/>
+<rect x="200.3" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="215.5" y="806.1" width="10.66" height="9.9" fill="#3fb950"/>
+<rect x="230.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="246.0" y="806.3" width="10.66" height="9.7" fill="#3fb950"/>
+<rect x="261.2" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="276.4" y="807.5" width="10.66" height="8.5" fill="#3fb950"/>
+<rect x="291.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="306.9" y="805.3" width="10.66" height="10.7" fill="#3fb950"/>
+<rect x="322.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="337.4" y="806.3" width="10.66" height="9.7" fill="#3fb950"/>
+<rect x="352.6" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="367.8" y="808.7" width="10.66" height="7.3" fill="#3fb950"/>
+<rect x="383.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="398.3" y="809.7" width="10.66" height="6.3" fill="#3fb950"/>
+<rect x="413.5" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="428.7" y="807.9" width="10.66" height="8.1" fill="#3fb950"/>
+<rect x="444.0" y="804.5" width="10.66" height="11.5" fill="#3fb950"/>
+<rect x="459.2" y="805.9" width="10.66" height="10.1" fill="#3fb950"/>
+<rect x="474.4" y="804.3" width="10.66" height="11.7" fill="#3fb950"/>
+<rect x="489.7" y="806.1" width="10.66" height="9.9" fill="#3fb950"/>
+<rect x="504.9" y="801.3" width="10.66" height="14.7" fill="#3fb950"/>
+<rect x="520.1" y="797.0" width="10.66" height="19.0" fill="#3fb950"/>
+<rect x="535.4" y="796.6" width="10.66" height="19.4" fill="#3fb950"/>
+<rect x="550.6" y="809.5" width="10.66" height="6.5" fill="#3fb950"/>
+<rect x="565.8" y="808.3" width="10.66" height="7.7" fill="#3fb950"/>
+<rect x="581.1" y="806.5" width="10.66" height="9.5" fill="#3fb950"/>
+<rect x="596.3" y="812.2" width="10.66" height="3.8" fill="#3fb950"/>
+<rect x="611.5" y="810.1" width="10.66" height="5.9" fill="#3fb950"/>
+<rect x="626.7" y="812.2" width="10.66" height="3.8" fill="#3fb950"/>
+<rect x="642.0" y="803.5" width="10.66" height="12.5" fill="#3fb950"/>
+<rect x="657.2" y="808.9" width="10.66" height="7.1" fill="#3fb950"/>
+<rect x="672.4" y="800.1" width="10.66" height="15.9" fill="#3fb950"/>
+<rect x="687.7" y="797.6" width="10.66" height="18.4" fill="#3fb950"/>
+<rect x="702.9" y="812.6" width="10.66" height="3.4" fill="#3fb950"/>
+<rect x="718.1" y="806.9" width="10.66" height="9.1" fill="#3fb950"/>
+<rect x="733.4" y="795.6" width="10.66" height="20.4" fill="#3fb950"/>
+<rect x="748.6" y="786.1" width="10.66" height="29.9" fill="#3fb950"/>
+<rect x="763.8" y="794.0" width="10.66" height="22.0" fill="#3fb950"/>
+<rect x="779.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<text x="0.0" y="832" class="lg">Dec</text>
+<text x="121.8" y="832" class="lg">Jan</text>
+<text x="243.7" y="832" class="lg">Feb</text>
+<text x="365.5" y="832" class="lg">Mar</text>
+<text x="472.2" y="832" class="lg">Apr</text>
+<text x="533.1" y="832" class="lg">May</text>
+<text x="609.2" y="832" class="lg">Jun</text>
+<text x="670.2" y="832" class="lg">Jul</text>
+<text x="731.1" y="832" class="lg">Aug</text>
+<text x="792" y="746" class="lg" text-anchor="end">peak 347/wk</text>
 </svg>
