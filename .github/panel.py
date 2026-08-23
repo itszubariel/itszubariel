@@ -296,9 +296,12 @@ def collect():
     added, removed = lines_changed(repos)
     commit_activity = commit_activity_series(repos)
 
+    # Custom bio override
+    CUSTOM_BIO = "Hi, I'm Zubariel, a self-taught developer who just builds things, whatever catches my interest. I've been building software for about 5 years ranging from Discord bots, scripting languages to web tools, mods, and apps. I don't follow a set stack, I just build what I need, and I'm always learning along the way."  # Set this to your desired text, e.g., "Software Engineer & Coffee Enthusiast"
+
     return {
         "name": u.get("name") or OWNER,
-        "bio": u.get("bio"),
+        "bio": CUSTOM_BIO or u.get("bio"),
         "avatar_b64": avatar_b64,
         "years": years,
         "followers": (u.get("followers") or {}).get("totalCount"),
@@ -514,7 +517,7 @@ def build(d, theme="dark"):
                          f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
             parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
             bx += bw + 10
-        y += 26 + 80  # Increased gap here
+        y += 26 + 40  # Decreased gap here
 
     # ---- Weekly commit activity, last 12 months ------------------------------
     activity = d["commit_activity"]
