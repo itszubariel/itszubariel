@@ -523,16 +523,10 @@ def build(d, theme="dark"):
 
     y += 32 + 27 * max(5, len(d["top_repos"]), len(d["recent_repos"])) + 24
 
-    # ---- Notable contributions and Organizations ----------------------------
-    # We'll split the width into two columns. Left: Notable, Right: Orgs
-    # Using the same badge style for both for consistency.
-    
-    col_y = y
-    
-    # Left column: Notable contributions
+    # ---- Notable contributions ---------------------------------
     if d["notable"]:
-        parts.append(f'<text x="0" y="{col_y}" class="h">Notable contributions</text>')
-        by = col_y + 20
+        parts.append(f'<text x="0" y="{y}" class="h">Notable contributions</text>')
+        by = y + 20
         bx = 0
         for org in d["notable"]:
             label = f"@{org}"
@@ -541,21 +535,7 @@ def build(d, theme="dark"):
                          f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
             parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
             bx += bw + 10
-            
-    # Right column: Organizations (as badges)
-    if d["orgs_list"]:
-        parts.append(f'<text x="400" y="{col_y}" class="h">Organizations</text>')
-        by = col_y + 20
-        bx = 400
-        for org in d["orgs_list"]:
-            label = f"@{org}"
-            bw = 16 + len(label) * 7.2
-            parts.append(f'<rect x="{bx}" y="{by}" width="{bw:.1f}" height="26" rx="13" '
-                         f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
-            parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
-            bx += bw + 10
-
-    y += 26 + 60  # Updated gap here based on badges
+        y += 26 + 60  # Decreased gap here
 
     # ---- Weekly commit activity, last 12 months ------------------------------
     activity = d["commit_activity"]
