@@ -17,7 +17,7 @@
 <text x="0" y="136" class="k">scripting languages to web tools, mods, and apps.</text>
 <text x="0" y="176" class="h">Activity</text>
 <text x="0" y="208" class="k">Contributions</text>
-<text x="220" y="208" class="v" text-anchor="end">4,577</text>
+<text x="220" y="208" class="v" text-anchor="end">4,579</text>
 <text x="0" y="235" class="k">Pull requests opened</text>
 <text x="220" y="235" class="v" text-anchor="end">40</text>
 <text x="0" y="262" class="k">Merged</text>
@@ -47,7 +47,7 @@
 <text x="560" y="289" class="k">Following</text>
 <text x="780" y="289" class="v" text-anchor="end">4</text>
 <text x="560" y="316" class="k">Organizations</text>
-<text x="780" y="316" class="v" text-anchor="end">–</text>
+<text x="780" y="316" class="v" text-anchor="end">2</text>
 <text x="0" y="367" class="h">Languages</text>
 <clipPath id="barclip"><rect x="0" y="383" width="792" height="8" rx="4"/></clipPath>
 <g clip-path="url(#barclip)"><rect x="0.00" y="383" width="330.00" height="8" fill="#e34c26"/>
@@ -67,7 +67,7 @@
 <text x="311.2" y="417" class="lg">Python</text>
 <text x="0" y="449" class="h">Community stats</text>
 <text x="0" y="481" class="k">Member of</text>
-<text x="220" y="481" class="v" text-anchor="end">– organizations</text>
+<text x="220" y="481" class="v" text-anchor="end">2 organizations</text>
 <text x="0" y="508" class="k">Following</text>
 <text x="220" y="508" class="v" text-anchor="end">4 users</text>
 <text x="0" y="535" class="k">Sponsoring</text>
