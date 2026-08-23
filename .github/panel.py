@@ -404,8 +404,21 @@ def build(d, theme="dark"):
     parts.append(f'<text x="{tx}" y="{y+48}" class="k">{esc(joined_line)}</text>')
     parts.append(f'<text x="{tx}" y="{y+68}" class="k">Followed by {n(d["followers"])} users</text>')
     if d["bio"]:
-        parts.append(f'<text x="0" y="{y+96}" class="k">{esc(d["bio"])}</text>')
-        header_h += 12
+        words = d["bio"].split()
+        lines = []
+        current_line = []
+        for word in words:
+            # Approx 7px per char
+            if sum(len(w) for w in current_line) + len(current_line) + len(word) > 85:
+                lines.append(" ".join(current_line))
+                current_line = [word]
+            else:
+                current_line.append(word)
+        lines.append(" ".join(current_line))
+        
+        for i, line in enumerate(lines[:3]): # Max 3 lines
+            parts.append(f'<text x="0" y="{y+96 + i*20}" class="k">{esc(line)}</text>')
+        header_h += len(lines[:3]) * 20
     y += header_h + 16
 
     # ---- Activity / Repositories / Reach, three columns -------------------
@@ -517,7 +530,7 @@ def build(d, theme="dark"):
                          f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
             parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
             bx += bw + 10
-        y += 26 + 40  # Decreased gap here
+        y += 26 + 60  # Decreased gap here
 
     # ---- Weekly commit activity, last 12 months ------------------------------
     activity = d["commit_activity"]
