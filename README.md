@@ -1,4 +1,7 @@
 <a href="https://zubs.me/">
-  <img src="metrics-light.svg?v=d12b1fc8#gh-light-mode-only" alt="GitHub metrics">
-  <img src="metrics-dark.svg?v=d12b1fc8#gh-dark-mode-only" alt="GitHub metrics">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/itszubariel/itszubariel/main/metrics-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/itszubariel/itszubariel/main/metrics-light.svg">
+    <img alt="GitHub metrics" src="https://raw.githubusercontent.com/itszubariel/itszubariel/main/metrics-light.svg">
+  </picture>
 </a>
