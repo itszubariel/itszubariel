@@ -5,9 +5,8 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  read-all: true
   packages: read
-  orgs: read
+  organizations: read
 jobs:
   panel:
     runs-on: ubuntu-latest
