@@ -12,16 +12,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-      # The counts include private repositories, so this needs a token that can
-      # see them. Without one the figures would be wrong in the same direction
-      # as the widget this replaced.
       - name: Regenerate the panel
         run: python3 .github/panel.py .
         env:
           GH_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-      # GitHub proxies these images and caches by URL, so a changed file at the
-      # same path keeps serving the old picture. The hash in the query string
-      # makes each regeneration a new URL.
       - name: Point the README at the new content
         run: |
           H=$(sha256sum metrics-dark.svg | cut -c1-8)
