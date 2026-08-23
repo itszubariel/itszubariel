@@ -216,8 +216,8 @@ def lines_changed(repos, repo_limit=LINES_REPO_LIMIT, commit_cap=LINES_COMMIT_CA
 def get_all_repos():
     # Fetch user repos + member orgs repos
     q = (f'{{user(login:"{OWNER}"){{'
-         f'repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
-         f'organizations(first:20){{nodes{{repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
+         f'repositories(first:100){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
+         f'organizations(first:20){{nodes{{repositories(first:100){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
          f'}}}}')
     d = gh(["api", "graphql", "-f", f"query={q}"])
     if not d or "data" not in d:
@@ -259,12 +259,12 @@ def collect():
     pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
-    # Top starred public repos
+    # Top starred repos (including private if desired, currently restricted to public in logic, but here we change to use all repos)
     def format_name(r):
         return r["nameWithOwner"] if r["owner"]["login"] != OWNER else r["name"]
 
     top_repos = sorted(
-        (r for r in public if r["name"] != OWNER),
+        (r for r in repos if r["name"] != OWNER),
         key=lambda r: r["stargazerCount"], reverse=True
     )[:TOP_REPOS_LIMIT]
     top_repos = [{"name": truncate_name(format_name(r)), "stars": r["stargazerCount"],
@@ -273,7 +273,7 @@ def collect():
 
     # Recently active repos
     recent_repos = sorted(
-        (r for r in public if r["name"] != OWNER),
+        (r for r in repos if r["name"] != OWNER),
         key=lambda r: r["pushedAt"], reverse=True
     )[:TOP_REPOS_LIMIT]
     recent_repos = [{"name": truncate_name(format_name(r)), "language": (r.get("primaryLanguage") or {}).get("name")}
@@ -306,7 +306,8 @@ def collect():
         "years": years,
         "followers": (u.get("followers") or {}).get("totalCount"),
         "following": (u.get("following") or {}).get("totalCount"),
-        "orgs": (u.get("organizations") or {}).get("totalCount"),
+        "orgs": u.get("organizations_count"),
+        "orgs_list": u.get("organizations_list"),
         "starred": (u.get("starredRepositories") or {}).get("totalCount"),
         "watching": (u.get("watching") or {}).get("totalCount"),
         "sponsoring": (u.get("sponsorshipsAsSponsor") or {}).get("totalCount"),
@@ -317,7 +318,7 @@ def collect():
         "issues": search_count(f"is:issue author:{OWNER}"),
         "repos": len(repos) or None,
         "repos_public": len(public),
-        "stars": sum(r["stargazerCount"] for r in public if r["name"] != OWNER) if repos else None,
+        "stars": sum(r["stargazerCount"] for r in repos if r["name"] != OWNER) if repos else None,
         "forks": sum(r["forkCount"] for r in repos) if repos else None,
         "licensed": sum(1 for r in repos if r.get("licenseInfo")) if repos else None,
         "releases": releases if got_release else None,
