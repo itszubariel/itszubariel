@@ -1,4 +1,12 @@
 <a href="https://zubs.me/">
-  <img src="metrics-light.svg#gh-light-mode-only" alt="GitHub metrics">
-  <img src="metrics-dark.svg#gh-dark-mode-only" alt="GitHub metrics">
+  <picture>
+    <source
+      srcset="metrics-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <img
+      src="metrics-light.svg"
+      alt="GitHub metrics"
+    />
+  </picture>
 </a>
