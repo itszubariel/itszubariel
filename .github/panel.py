@@ -44,10 +44,15 @@ TOP_REPOS_LIMIT = 5
 def gh(args):
     r = subprocess.run(["gh", *args], capture_output=True, text=True)
     if r.returncode != 0:
+        print(f"gh command failed: {' '.join(args)}")
+        print(f"returncode: {r.returncode}")
+        print(f"stdout: {r.stdout}")
+        print(f"stderr: {r.stderr}")
         return None
     try:
         return json.loads(r.stdout)
     except json.JSONDecodeError:
+        print(f"json decode failed: {r.stdout}")
         return None
 
 
