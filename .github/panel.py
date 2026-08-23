@@ -86,20 +86,24 @@ def contributions_all_time():
 def profile_extra():
     """
     Header and community fields in one query: avatar, bio, joined date, and
-    the counts that make up the community section. sponsorshipsAsSponsor is
-    kept in the same query but read defensively below — a token without
-    sponsors access can fail that one field without failing the rest, since
-    GraphQL still returns partial data alongside a top-level errors array.
+    the counts that make up the community section.
     """
     q = (f'{{user(login:"{OWNER}"){{name bio avatarUrl createdAt '
-         f'followers{{totalCount}} following{{totalCount}} organizations{{totalCount}} '
+         f'followers{{totalCount}} following{{totalCount}} organizations(first:20){{nodes{{login}}}} '
          f'starredRepositories{{totalCount}} watching{{totalCount}} '
          f'sponsorshipsAsSponsor{{totalCount}}}}}}')
     d = gh(["api", "graphql", "-f", f"query={q}"])
-    return (d or {}).get("data", {}).get("user", {}) or {}
+    user = (d or {}).get("data", {}).get("user", {}) or {}
+    
+    # Process organizations into a flat list of logins
+    orgs = user.get("organizations", {}).get("nodes", [])
+    user["organizations_list"] = [o["login"] for o in orgs]
+    user["organizations_count"] = len(orgs)
+    
+    return user
 
 
-def notable_orgs(limit=6):
+def notable_orgs(limit=4):
     """
     Organizations whose repositories this account has committed to, excluding
     the account's own repositories. Deduplicated and capped, since a long
@@ -216,8 +220,8 @@ def lines_changed(repos, repo_limit=LINES_REPO_LIMIT, commit_cap=LINES_COMMIT_CA
 def get_all_repos():
     # Fetch user repos + member orgs repos
     q = (f'{{user(login:"{OWNER}"){{'
-         f'repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
-         f'organizations(first:20){{nodes{{repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
+         f'repositories(first:100){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
+         f'organizations(first:20){{nodes{{repositories(first:100){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
          f'}}}}')
     d = gh(["api", "graphql", "-f", f"query={q}"])
     if not d or "data" not in d:
@@ -259,12 +263,12 @@ def collect():
     pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
     langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
 
-    # Top starred public repos
+    # Top starred repos (including private if desired, currently restricted to public in logic, but here we change to use all repos)
     def format_name(r):
         return r["nameWithOwner"] if r["owner"]["login"] != OWNER else r["name"]
 
     top_repos = sorted(
-        (r for r in public if r["name"] != OWNER),
+        (r for r in repos if r["name"] != OWNER),
         key=lambda r: r["stargazerCount"], reverse=True
     )[:TOP_REPOS_LIMIT]
     top_repos = [{"name": truncate_name(format_name(r)), "stars": r["stargazerCount"],
@@ -273,7 +277,7 @@ def collect():
 
     # Recently active repos
     recent_repos = sorted(
-        (r for r in public if r["name"] != OWNER),
+        (r for r in repos if r["name"] != OWNER),
         key=lambda r: r["pushedAt"], reverse=True
     )[:TOP_REPOS_LIMIT]
     recent_repos = [{"name": truncate_name(format_name(r)), "language": (r.get("primaryLanguage") or {}).get("name")}
@@ -306,7 +310,8 @@ def collect():
         "years": years,
         "followers": (u.get("followers") or {}).get("totalCount"),
         "following": (u.get("following") or {}).get("totalCount"),
-        "orgs": (u.get("organizations") or {}).get("totalCount"),
+        "orgs": u.get("organizations_count"),
+        "orgs_list": u.get("organizations_list"),
         "starred": (u.get("starredRepositories") or {}).get("totalCount"),
         "watching": (u.get("watching") or {}).get("totalCount"),
         "sponsoring": (u.get("sponsorshipsAsSponsor") or {}).get("totalCount"),
@@ -317,7 +322,7 @@ def collect():
         "issues": search_count(f"is:issue author:{OWNER}"),
         "repos": len(repos) or None,
         "repos_public": len(public),
-        "stars": sum(r["stargazerCount"] for r in public if r["name"] != OWNER) if repos else None,
+        "stars": sum(r["stargazerCount"] for r in repos if r["name"] != OWNER) if repos else None,
         "forks": sum(r["forkCount"] for r in repos) if repos else None,
         "licensed": sum(1 for r in repos if r.get("licenseInfo")) if repos else None,
         "releases": releases if got_release else None,
@@ -518,10 +523,16 @@ def build(d, theme="dark"):
 
     y += 32 + 27 * max(5, len(d["top_repos"]), len(d["recent_repos"])) + 24
 
-    # ---- Notable contributions (org badges) ---------------------------------
+    # ---- Notable contributions and Organizations ----------------------------
+    # We'll split the width into two columns. Left: Notable, Right: Orgs
+    # Using the same badge style for both for consistency.
+    
+    col_y = y
+    
+    # Left column: Notable contributions
     if d["notable"]:
-        parts.append(f'<text x="0" y="{y}" class="h">Notable contributions</text>')
-        by = y + 20
+        parts.append(f'<text x="0" y="{col_y}" class="h">Notable contributions</text>')
+        by = col_y + 20
         bx = 0
         for org in d["notable"]:
             label = f"@{org}"
@@ -530,7 +541,21 @@ def build(d, theme="dark"):
                          f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
             parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
             bx += bw + 10
-        y += 26 + 60  # Decreased gap here
+            
+    # Right column: Organizations (as badges)
+    if d["orgs_list"]:
+        parts.append(f'<text x="400" y="{col_y}" class="h">Organizations</text>')
+        by = col_y + 20
+        bx = 400
+        for org in d["orgs_list"]:
+            label = f"@{org}"
+            bw = 16 + len(label) * 7.2
+            parts.append(f'<rect x="{bx}" y="{by}" width="{bw:.1f}" height="26" rx="13" '
+                         f'fill="{c["chip"]}" stroke="{c["border"]}"/>')
+            parts.append(f'<text x="{bx + bw/2:.1f}" y="{by+17}" class="k" text-anchor="middle">{esc(label)}</text>')
+            bx += bw + 10
+
+    y += 26 + 60  # Updated gap here based on badges
 
     # ---- Weekly commit activity, last 12 months ------------------------------
     activity = d["commit_activity"]
