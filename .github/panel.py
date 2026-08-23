@@ -214,16 +214,19 @@ def lines_changed(repos, repo_limit=LINES_REPO_LIMIT, commit_cap=LINES_COMMIT_CA
 
 
 def get_all_repos():
+    # Fetch user repos + member orgs repos
     q = (f'{{user(login:"{OWNER}"){{'
          f'repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
-         f'repositoriesContributedTo(first:100, contributionTypes:[COMMIT], includeUserRepositories:false){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}} '
+         f'organizations(first:20){{nodes{{repositories(first:100, privacy:PUBLIC){{nodes{{name nameWithOwner stargazerCount forkCount isPrivate primaryLanguage{{name}} licenseInfo{{name}} diskUsage pushedAt owner{{login}}}}}}}}}} '
          f'}}}}')
     d = gh(["api", "graphql", "-f", f"query={q}"])
     if not d or "data" not in d:
         return []
 
     user = d["data"]["user"]
-    repos = user["repositories"]["nodes"] + user["repositoriesContributedTo"]["nodes"]
+    repos = user["repositories"]["nodes"]
+    for org in user["organizations"]["nodes"]:
+        repos += org["repositories"]["nodes"]
 
     # Deduplicate by nameWithOwner
     seen = set()
@@ -233,6 +236,9 @@ def get_all_repos():
             seen.add(r["nameWithOwner"])
             unique_repos.append(r)
     return unique_repos
+
+def truncate_name(name, max_len=18):
+    return name if len(name) <= max_len else name[:max_len-3] + "..."
 
 def collect():
     repos = get_all_repos()
@@ -261,7 +267,7 @@ def collect():
         (r for r in public if r["name"] != OWNER),
         key=lambda r: r["stargazerCount"], reverse=True
     )[:TOP_REPOS_LIMIT]
-    top_repos = [{"name": format_name(r), "stars": r["stargazerCount"],
+    top_repos = [{"name": truncate_name(format_name(r)), "stars": r["stargazerCount"],
                   "language": (r.get("primaryLanguage") or {}).get("name")}
                  for r in top_repos]
 
@@ -270,7 +276,7 @@ def collect():
         (r for r in public if r["name"] != OWNER),
         key=lambda r: r["pushedAt"], reverse=True
     )[:TOP_REPOS_LIMIT]
-    recent_repos = [{"name": format_name(r), "language": (r.get("primaryLanguage") or {}).get("name")}
+    recent_repos = [{"name": truncate_name(format_name(r)), "language": (r.get("primaryLanguage") or {}).get("name")}
                     for r in recent_repos]
 
     joined = u.get("createdAt")
@@ -481,7 +487,7 @@ def build(d, theme="dark"):
             colour = LANG_COLOURS.get(r["language"], FALLBACK_COLOUR)
             parts.append(f'<circle cx="284" cy="{ry-4}" r="4" fill="{colour}"/>')
             parts.append(f'<text x="294" y="{ry}" class="k">{esc(r["name"])}</text>')
-            parts.append(f'<text x="{280+220}" y="{ry}" class="v" text-anchor="end">'
+            parts.append(f'<text x="{280+215}" y="{ry}" class="v" text-anchor="end">'
                          f'\u2605 {n(r["stars"])}</text>')
             ry += 27
 
