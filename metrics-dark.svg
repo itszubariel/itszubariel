@@ -17,7 +17,7 @@
 <text x="0" y="136" class="k">scripting languages to web tools, mods, and apps.</text>
 <text x="0" y="176" class="h">Activity</text>
 <text x="0" y="208" class="k">Contributions</text>
-<text x="220" y="208" class="v" text-anchor="end">4,634</text>
+<text x="220" y="208" class="v" text-anchor="end">4,635</text>
 <text x="0" y="235" class="k">Pull requests opened</text>
 <text x="220" y="235" class="v" text-anchor="end">40</text>
 <text x="0" y="262" class="k">Merged</text>
@@ -93,16 +93,16 @@
 <text x="294" y="589" class="k">zbrlang/zbr-web...</text>
 <text x="495" y="589" class="v" text-anchor="end">★ 12</text>
 <text x="560" y="449" class="h">Recently active</text>
-<circle cx="564" cy="477" r="4" fill="#8b949e"/>
-<text x="574" y="481" class="k">desktop</text>
-<circle cx="564" cy="504" r="4" fill="#3178c6"/>
-<text x="574" y="508" class="k">ZapQR</text>
-<circle cx="564" cy="531" r="4" fill="#dea584"/>
-<text x="574" y="535" class="k">zhron</text>
-<circle cx="564" cy="558" r="4" fill="#e34c26"/>
-<text x="574" y="562" class="k">Linktree</text>
+<circle cx="564" cy="477" r="4" fill="#3178c6"/>
+<text x="574" y="481" class="k">typesnippet/rea...</text>
+<circle cx="564" cy="504" r="4" fill="#8b949e"/>
+<text x="574" y="508" class="k">desktop</text>
+<circle cx="564" cy="531" r="4" fill="#3178c6"/>
+<text x="574" y="535" class="k">ZapQR</text>
+<circle cx="564" cy="558" r="4" fill="#dea584"/>
+<text x="574" y="562" class="k">zhron</text>
 <circle cx="564" cy="585" r="4" fill="#e34c26"/>
-<text x="574" y="589" class="k">Linktree-Private</text>
+<text x="574" y="589" class="k">Linktree</text>
 <text x="0" y="640" class="h">Notable contributions</text>
 <rect x="0" y="660" width="160.0" height="26" rx="13" fill="#21262d" stroke="#3d444d"/>
 <text x="80.0" y="677" class="k" text-anchor="middle">@NilPointer-Software</text>
@@ -111,66 +111,66 @@
 <rect x="253.6" y="660" width="109.6" height="26" rx="13" fill="#21262d" stroke="#3d444d"/>
 <text x="308.4" y="677" class="k" text-anchor="middle">@free-domains</text>
 <text x="0" y="726" class="h">Weekly commit activity</text>
-<rect x="2.3" y="812.1" width="10.66" height="3.9" fill="#3fb950"/>
-<rect x="17.5" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="32.7" y="808.4" width="10.66" height="7.6" fill="#3fb950"/>
-<rect x="48.0" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="2.3" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="17.5" y="805.9" width="10.66" height="10.1" fill="#3fb950"/>
+<rect x="32.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="48.0" y="812.2" width="10.66" height="3.8" fill="#3fb950"/>
 <rect x="63.2" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="78.4" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="93.7" y="793.2" width="10.66" height="22.8" fill="#3fb950"/>
-<rect x="108.9" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="124.1" y="774.3" width="10.66" height="41.7" fill="#3fb950"/>
-<rect x="139.4" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="154.6" y="746.0" width="10.66" height="70.0" fill="#3fb950"/>
-<rect x="169.8" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="185.1" y="758.2" width="10.66" height="57.8" fill="#3fb950"/>
-<rect x="200.3" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="78.4" y="790.0" width="10.66" height="26.0" fill="#3fb950"/>
+<rect x="93.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="108.9" y="771.4" width="10.66" height="44.6" fill="#3fb950"/>
+<rect x="124.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="139.4" y="746.0" width="10.66" height="70.0" fill="#3fb950"/>
+<rect x="154.6" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="169.8" y="758.5" width="10.66" height="57.5" fill="#3fb950"/>
+<rect x="185.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="200.3" y="806.1" width="10.66" height="9.9" fill="#3fb950"/>
 <rect x="215.5" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="230.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="230.7" y="806.3" width="10.66" height="9.7" fill="#3fb950"/>
 <rect x="246.0" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="261.2" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="276.4" y="814.0" width="10.66" height="2.0" fill="#3fb950"/>
-<rect x="291.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="306.9" y="814.0" width="10.66" height="2.0" fill="#3fb950"/>
-<rect x="322.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="261.2" y="807.5" width="10.66" height="8.5" fill="#3fb950"/>
+<rect x="276.4" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="291.7" y="805.3" width="10.66" height="10.7" fill="#3fb950"/>
+<rect x="306.9" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="322.1" y="806.3" width="10.66" height="9.7" fill="#3fb950"/>
 <rect x="337.4" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="352.6" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="367.8" y="814.0" width="10.66" height="2.0" fill="#3fb950"/>
-<rect x="383.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="352.6" y="808.7" width="10.66" height="7.3" fill="#3fb950"/>
+<rect x="367.8" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
+<rect x="383.1" y="809.7" width="10.66" height="6.3" fill="#3fb950"/>
 <rect x="398.3" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="413.5" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="428.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="444.0" y="813.5" width="10.66" height="2.5" fill="#3fb950"/>
-<rect x="459.2" y="812.5" width="10.66" height="3.5" fill="#3fb950"/>
-<rect x="474.4" y="810.0" width="10.66" height="6.0" fill="#3fb950"/>
-<rect x="489.7" y="807.5" width="10.66" height="8.5" fill="#3fb950"/>
-<rect x="504.9" y="807.0" width="10.66" height="9.0" fill="#3fb950"/>
-<rect x="520.1" y="805.6" width="10.66" height="10.4" fill="#3fb950"/>
-<rect x="535.4" y="805.2" width="10.66" height="10.8" fill="#3fb950"/>
-<rect x="550.6" y="810.7" width="10.66" height="5.3" fill="#3fb950"/>
-<rect x="565.8" y="812.3" width="10.66" height="3.7" fill="#3fb950"/>
-<rect x="581.1" y="810.5" width="10.66" height="5.5" fill="#3fb950"/>
-<rect x="596.3" y="813.0" width="10.66" height="3.0" fill="#3fb950"/>
-<rect x="611.5" y="813.2" width="10.66" height="2.8" fill="#3fb950"/>
-<rect x="626.7" y="813.9" width="10.66" height="2.1" fill="#3fb950"/>
-<rect x="642.0" y="806.6" width="10.66" height="9.4" fill="#3fb950"/>
-<rect x="657.2" y="808.6" width="10.66" height="7.4" fill="#3fb950"/>
-<rect x="672.4" y="800.8" width="10.66" height="15.2" fill="#3fb950"/>
-<rect x="687.7" y="796.2" width="10.66" height="19.8" fill="#3fb950"/>
-<rect x="702.9" y="814.0" width="10.66" height="2.0" fill="#3fb950"/>
-<rect x="718.1" y="808.6" width="10.66" height="7.4" fill="#3fb950"/>
-<rect x="733.4" y="795.5" width="10.66" height="20.5" fill="#3fb950"/>
-<rect x="748.6" y="781.7" width="10.66" height="34.3" fill="#3fb950"/>
-<rect x="763.8" y="782.8" width="10.66" height="33.2" fill="#3fb950"/>
-<rect x="779.1" y="801.5" width="10.66" height="14.5" fill="#3fb950"/>
+<rect x="413.5" y="807.9" width="10.66" height="8.1" fill="#3fb950"/>
+<rect x="428.7" y="804.5" width="10.66" height="11.5" fill="#3fb950"/>
+<rect x="444.0" y="805.5" width="10.66" height="10.5" fill="#3fb950"/>
+<rect x="459.2" y="805.7" width="10.66" height="10.3" fill="#3fb950"/>
+<rect x="474.4" y="804.7" width="10.66" height="11.3" fill="#3fb950"/>
+<rect x="489.7" y="801.5" width="10.66" height="14.5" fill="#3fb950"/>
+<rect x="504.9" y="796.0" width="10.66" height="20.0" fill="#3fb950"/>
+<rect x="520.1" y="794.8" width="10.66" height="21.2" fill="#3fb950"/>
+<rect x="535.4" y="808.1" width="10.66" height="7.9" fill="#3fb950"/>
+<rect x="550.6" y="806.1" width="10.66" height="9.9" fill="#3fb950"/>
+<rect x="565.8" y="807.7" width="10.66" height="8.3" fill="#3fb950"/>
+<rect x="581.1" y="810.6" width="10.66" height="5.4" fill="#3fb950"/>
+<rect x="596.3" y="809.3" width="10.66" height="6.7" fill="#3fb950"/>
+<rect x="611.5" y="810.8" width="10.66" height="5.2" fill="#3fb950"/>
+<rect x="626.7" y="805.5" width="10.66" height="10.5" fill="#3fb950"/>
+<rect x="642.0" y="811.6" width="10.66" height="4.4" fill="#3fb950"/>
+<rect x="657.2" y="798.4" width="10.66" height="17.6" fill="#3fb950"/>
+<rect x="672.4" y="808.3" width="10.66" height="7.7" fill="#3fb950"/>
+<rect x="687.7" y="811.4" width="10.66" height="4.6" fill="#3fb950"/>
+<rect x="702.9" y="805.9" width="10.66" height="10.1" fill="#3fb950"/>
+<rect x="718.1" y="794.8" width="10.66" height="21.2" fill="#3fb950"/>
+<rect x="733.4" y="796.2" width="10.66" height="19.8" fill="#3fb950"/>
+<rect x="748.6" y="788.6" width="10.66" height="27.4" fill="#3fb950"/>
+<rect x="763.8" y="800.5" width="10.66" height="15.5" fill="#3fb950"/>
+<rect x="779.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
 <text x="0.0" y="832" class="lg">Dec</text>
-<text x="121.8" y="832" class="lg">Jan</text>
-<text x="243.7" y="832" class="lg">Feb</text>
-<text x="365.5" y="832" class="lg">Mar</text>
-<text x="472.2" y="832" class="lg">Apr</text>
-<text x="533.1" y="832" class="lg">May</text>
-<text x="609.2" y="832" class="lg">Jun</text>
-<text x="670.2" y="832" class="lg">Jul</text>
-<text x="731.1" y="832" class="lg">Aug</text>
-<text x="792" y="746" class="lg" text-anchor="end">peak 304/wk</text>
+<text x="106.6" y="832" class="lg">Jan</text>
+<text x="228.5" y="832" class="lg">Feb</text>
+<text x="350.3" y="832" class="lg">Mar</text>
+<text x="456.9" y="832" class="lg">Apr</text>
+<text x="517.8" y="832" class="lg">May</text>
+<text x="594.0" y="832" class="lg">Jun</text>
+<text x="654.9" y="832" class="lg">Jul</text>
+<text x="715.8" y="832" class="lg">Aug</text>
+<text x="792" y="746" class="lg" text-anchor="end">peak 347/wk</text>
 </svg>
