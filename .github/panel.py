@@ -257,7 +257,7 @@ def collect():
             got_release = True
 
     pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
-    EXCLUDED_LANGS = {"HTML"}
+    EXCLUDED_LANGS = {"HTML", "CSS"}
 
     langs = Counter(
     r["primaryLanguage"]["name"] for r in repos
