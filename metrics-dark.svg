@@ -17,7 +17,7 @@
 <text x="0" y="136" class="k">scripting languages to web tools, mods, and apps.</text>
 <text x="0" y="176" class="h">Activity</text>
 <text x="0" y="208" class="k">Contributions</text>
-<text x="220" y="208" class="v" text-anchor="end">4,788</text>
+<text x="220" y="208" class="v" text-anchor="end">4,790</text>
 <text x="0" y="235" class="k">Pull requests opened</text>
 <text x="220" y="235" class="v" text-anchor="end">40</text>
 <text x="0" y="262" class="k">Merged</text>
@@ -50,21 +50,21 @@
 <text x="780" y="316" class="v" text-anchor="end">2</text>
 <text x="0" y="367" class="h">Languages</text>
 <clipPath id="barclip"><rect x="0" y="383" width="792" height="8" rx="4"/></clipPath>
-<g clip-path="url(#barclip)"><rect x="0.00" y="383" width="303.60" height="8" fill="#e34c26"/>
-<rect x="303.60" y="383" width="237.60" height="8" fill="#3178c6"/>
-<rect x="541.20" y="383" width="105.60" height="8" fill="#f1e05a"/>
-<rect x="646.80" y="383" width="105.60" height="8" fill="#dea584"/>
-<rect x="752.40" y="383" width="39.60" height="8" fill="#3572A5"/></g>
-<circle cx="4" cy="413" r="4" fill="#e34c26"/>
-<text x="14" y="417" class="lg">HTML</text>
-<circle cx="57.6" cy="413" r="4" fill="#3178c6"/>
-<text x="67.6" y="417" class="lg">TypeScript</text>
-<circle cx="152.6" cy="413" r="4" fill="#f1e05a"/>
-<text x="162.6" y="417" class="lg">JavaScript</text>
-<circle cx="247.6" cy="413" r="4" fill="#dea584"/>
-<text x="257.6" y="417" class="lg">Rust</text>
-<circle cx="301.2" cy="413" r="4" fill="#3572A5"/>
-<text x="311.2" y="417" class="lg">Python</text>
+<g clip-path="url(#barclip)"><rect x="0.00" y="383" width="365.54" height="8" fill="#3178c6"/>
+<rect x="365.54" y="383" width="162.46" height="8" fill="#f1e05a"/>
+<rect x="528.00" y="383" width="162.46" height="8" fill="#dea584"/>
+<rect x="690.46" y="383" width="60.92" height="8" fill="#3572A5"/>
+<rect x="751.38" y="383" width="40.62" height="8" fill="#663399"/></g>
+<circle cx="4" cy="413" r="4" fill="#3178c6"/>
+<text x="14" y="417" class="lg">TypeScript</text>
+<circle cx="99.0" cy="413" r="4" fill="#f1e05a"/>
+<text x="109.0" y="417" class="lg">JavaScript</text>
+<circle cx="194.0" cy="413" r="4" fill="#dea584"/>
+<text x="204.0" y="417" class="lg">Rust</text>
+<circle cx="247.6" cy="413" r="4" fill="#3572A5"/>
+<text x="257.6" y="417" class="lg">Python</text>
+<circle cx="315.0" cy="413" r="4" fill="#663399"/>
+<text x="325.0" y="417" class="lg">CSS</text>
 <text x="0" y="449" class="h">Community stats</text>
 <text x="0" y="481" class="k">Member of</text>
 <text x="220" y="481" class="v" text-anchor="end">2 organizations</text>
@@ -139,18 +139,18 @@
 <rect x="383.1" y="809.7" width="10.66" height="6.3" fill="#3fb950"/>
 <rect x="398.3" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
 <rect x="413.5" y="807.9" width="10.66" height="8.1" fill="#3fb950"/>
-<rect x="428.7" y="804.7" width="10.66" height="11.3" fill="#3fb950"/>
-<rect x="444.0" y="806.9" width="10.66" height="9.1" fill="#3fb950"/>
-<rect x="459.2" y="806.7" width="10.66" height="9.3" fill="#3fb950"/>
-<rect x="474.4" y="804.3" width="10.66" height="11.7" fill="#3fb950"/>
-<rect x="489.7" y="800.9" width="10.66" height="15.1" fill="#3fb950"/>
-<rect x="504.9" y="797.0" width="10.66" height="19.0" fill="#3fb950"/>
-<rect x="520.1" y="794.8" width="10.66" height="21.2" fill="#3fb950"/>
-<rect x="535.4" y="807.5" width="10.66" height="8.5" fill="#3fb950"/>
-<rect x="550.6" y="806.3" width="10.66" height="9.7" fill="#3fb950"/>
+<rect x="428.7" y="804.5" width="10.66" height="11.5" fill="#3fb950"/>
+<rect x="444.0" y="805.5" width="10.66" height="10.5" fill="#3fb950"/>
+<rect x="459.2" y="804.3" width="10.66" height="11.7" fill="#3fb950"/>
+<rect x="474.4" y="803.5" width="10.66" height="12.5" fill="#3fb950"/>
+<rect x="489.7" y="800.3" width="10.66" height="15.7" fill="#3fb950"/>
+<rect x="504.9" y="795.6" width="10.66" height="20.4" fill="#3fb950"/>
+<rect x="520.1" y="794.6" width="10.66" height="21.4" fill="#3fb950"/>
+<rect x="535.4" y="807.3" width="10.66" height="8.7" fill="#3fb950"/>
+<rect x="550.6" y="806.1" width="10.66" height="9.9" fill="#3fb950"/>
 <rect x="565.8" y="804.9" width="10.66" height="11.1" fill="#3fb950"/>
-<rect x="581.1" y="811.0" width="10.66" height="5.0" fill="#3fb950"/>
-<rect x="596.3" y="809.5" width="10.66" height="6.5" fill="#3fb950"/>
+<rect x="581.1" y="810.6" width="10.66" height="5.4" fill="#3fb950"/>
+<rect x="596.3" y="809.3" width="10.66" height="6.7" fill="#3fb950"/>
 <rect x="611.5" y="810.8" width="10.66" height="5.2" fill="#3fb950"/>
 <rect x="626.7" y="802.3" width="10.66" height="13.7" fill="#3fb950"/>
 <rect x="642.0" y="807.5" width="10.66" height="8.5" fill="#3fb950"/>
@@ -158,11 +158,11 @@
 <rect x="672.4" y="796.2" width="10.66" height="19.8" fill="#3fb950"/>
 <rect x="687.7" y="811.4" width="10.66" height="4.6" fill="#3fb950"/>
 <rect x="702.9" y="805.9" width="10.66" height="10.1" fill="#3fb950"/>
-<rect x="718.1" y="795.0" width="10.66" height="21.0" fill="#3fb950"/>
-<rect x="733.4" y="784.7" width="10.66" height="31.3" fill="#3fb950"/>
-<rect x="748.6" y="783.9" width="10.66" height="32.1" fill="#3fb950"/>
-<rect x="763.8" y="800.7" width="10.66" height="15.3" fill="#3fb950"/>
-<rect x="779.1" y="814.0" width="10.66" height="2.0" fill="#3fb950"/>
+<rect x="718.1" y="794.8" width="10.66" height="21.2" fill="#3fb950"/>
+<rect x="733.4" y="783.7" width="10.66" height="32.3" fill="#3fb950"/>
+<rect x="748.6" y="783.3" width="10.66" height="32.7" fill="#3fb950"/>
+<rect x="763.8" y="800.5" width="10.66" height="15.5" fill="#3fb950"/>
+<rect x="779.1" y="804.9" width="10.66" height="11.1" fill="#3fb950"/>
 <text x="0.0" y="832" class="lg">Dec</text>
 <text x="106.6" y="832" class="lg">Jan</text>
 <text x="228.5" y="832" class="lg">Feb</text>
