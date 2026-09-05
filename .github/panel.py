@@ -257,7 +257,12 @@ def collect():
             got_release = True
 
     pkgs = gh(["api", "/user/packages?package_type=npm", "--jq", "length"])
-    langs = Counter(r["primaryLanguage"]["name"] for r in repos if r.get("primaryLanguage"))
+    EXCLUDED_LANGS = {"HTML"}
+
+    langs = Counter(
+    r["primaryLanguage"]["name"] for r in repos
+    if r.get("primaryLanguage") and r["primaryLanguage"]["name"] not in EXCLUDED_LANGS
+    )
 
     # Top starred repos (including private if desired, currently restricted to public in logic, but here we change to use all repos)
     def format_name(r):
