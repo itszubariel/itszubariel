@@ -17,7 +17,7 @@
 <text x="0" y="136" class="k">scripting languages to web tools, mods, and apps.</text>
 <text x="0" y="176" class="h">Activity</text>
 <text x="0" y="208" class="k">Contributions</text>
-<text x="220" y="208" class="v" text-anchor="end">5,221</text>
+<text x="220" y="208" class="v" text-anchor="end">5,222</text>
 <text x="0" y="235" class="k">Pull requests opened</text>
 <text x="220" y="235" class="v" text-anchor="end">40</text>
 <text x="0" y="262" class="k">Merged</text>
@@ -114,31 +114,31 @@
 <rect x="2.3" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
 <rect x="17.5" y="746.0" width="10.66" height="70.0" fill="#3fb950"/>
 <rect x="32.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="48.0" y="806.9" width="10.66" height="9.1" fill="#3fb950"/>
+<rect x="48.0" y="804.0" width="10.66" height="12.0" fill="#3fb950"/>
 <rect x="63.2" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="78.4" y="809.6" width="10.66" height="6.4" fill="#3fb950"/>
+<rect x="78.4" y="804.2" width="10.66" height="11.8" fill="#3fb950"/>
 <rect x="93.7" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="108.9" y="807.2" width="10.66" height="8.8" fill="#3fb950"/>
+<rect x="108.9" y="805.7" width="10.66" height="10.3" fill="#3fb950"/>
 <rect x="124.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="139.4" y="806.4" width="10.66" height="9.6" fill="#3fb950"/>
+<rect x="139.4" y="803.0" width="10.66" height="13.0" fill="#3fb950"/>
 <rect x="154.6" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
 <rect x="169.8" y="804.2" width="10.66" height="11.8" fill="#3fb950"/>
 <rect x="185.1" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="200.3" y="809.4" width="10.66" height="6.6" fill="#3fb950"/>
+<rect x="200.3" y="807.2" width="10.66" height="8.8" fill="#3fb950"/>
 <rect x="215.5" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="230.7" y="810.8" width="10.66" height="5.2" fill="#3fb950"/>
+<rect x="230.7" y="808.4" width="10.66" height="7.6" fill="#3fb950"/>
 <rect x="246.0" y="816.0" width="10.66" height="0.0" fill="#3fb950"/>
-<rect x="261.2" y="811.1" width="10.66" height="4.9" fill="#3fb950"/>
-<rect x="276.4" y="805.7" width="10.66" height="10.3" fill="#3fb950"/>
-<rect x="291.7" y="805.2" width="10.66" height="10.8" fill="#3fb950"/>
-<rect x="306.9" y="803.0" width="10.66" height="13.0" fill="#3fb950"/>
-<rect x="322.1" y="801.8" width="10.66" height="14.2" fill="#3fb950"/>
-<rect x="337.4" y="799.1" width="10.66" height="16.9" fill="#3fb950"/>
-<rect x="352.6" y="792.9" width="10.66" height="23.1" fill="#3fb950"/>
-<rect x="367.8" y="792.4" width="10.66" height="23.6" fill="#3fb950"/>
-<rect x="383.1" y="806.2" width="10.66" height="9.8" fill="#3fb950"/>
-<rect x="398.3" y="805.2" width="10.66" height="10.8" fill="#3fb950"/>
-<rect x="413.5" y="803.0" width="10.66" height="13.0" fill="#3fb950"/>
+<rect x="261.2" y="806.2" width="10.66" height="9.8" fill="#3fb950"/>
+<rect x="276.4" y="802.0" width="10.66" height="14.0" fill="#3fb950"/>
+<rect x="291.7" y="803.2" width="10.66" height="12.8" fill="#3fb950"/>
+<rect x="306.9" y="801.8" width="10.66" height="14.2" fill="#3fb950"/>
+<rect x="322.1" y="800.8" width="10.66" height="15.2" fill="#3fb950"/>
+<rect x="337.4" y="796.8" width="10.66" height="19.2" fill="#3fb950"/>
+<rect x="352.6" y="791.2" width="10.66" height="24.8" fill="#3fb950"/>
+<rect x="367.8" y="790.0" width="10.66" height="26.0" fill="#3fb950"/>
+<rect x="383.1" y="805.4" width="10.66" height="10.6" fill="#3fb950"/>
+<rect x="398.3" y="804.0" width="10.66" height="12.0" fill="#3fb950"/>
+<rect x="413.5" y="802.5" width="10.66" height="13.5" fill="#3fb950"/>
 <rect x="428.7" y="809.4" width="10.66" height="6.6" fill="#3fb950"/>
 <rect x="444.0" y="807.9" width="10.66" height="8.1" fill="#3fb950"/>
 <rect x="459.2" y="809.6" width="10.66" height="6.4" fill="#3fb950"/>
